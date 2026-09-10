@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Header -->
+  <section class="hero" style="padding:48px 0;">
+    <div class="container">
+      <h1>Request a Cleanroom Quote</h1>
+      <p style="margin-bottom:0;">Provide your preliminary project details below to receive a non-binding quotation and technical assessment.</p>
+    </div>
+  </section>
+
+  <!-- Quote Form Section -->
+  <section class="section">
+    <div class="container">
+      <div class="form-box">
+        <h2 style="font-size:1.5rem; color:var(--primary-navy); margin-bottom:8px;">Cleanroom Project Information</h2>
+        <p style="font-size:0.9375rem; color:var(--slate-text); margin-bottom:28px;">
+          Please complete the fields below. An engineer will review your criteria and contact you within 24 hours.
+        </p>
+
+        <form id="simpleQuoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" class="form-input" placeholder="e.g. Dr. Andrea Wagner" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="company">Company / Organization *</label>
+              <input type="text" id="company" name="company" class="form-input" placeholder="e.g. Novartis Pharma AG" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="name@company.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+49 ..." required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="industry">Industry Sector *</label>
+              <select id="industry" name="industry" class="form-select" required>
+                <option value="Pharmaceutical / Biotech">Pharmaceutical & Biotechnology</option>
+                <option value="Semiconductor / Electronics">Semiconductor & Electronics</option>
+                <option value="Medical Devices">Medical Devices</option>
+                <option value="Aerospace / Optics">Aerospace & Optics</option>
+                <option value="Healthcare / Hospital">Healthcare & Compounding</option>
+                <option value="Other">Other Application</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="targetStandard">Target Cleanliness Class *</label>
+              <select id="targetStandard" name="targetStandard" class="form-select" required>
+                <option value="ISO 4 (GMP Grade A Equivalent)">ISO Class 4 (GMP Grade A Equivalent)</option>
+                <option value="ISO 5 (GMP Grade B/A localized)">ISO Class 5 (GMP Grade B / A Localized)</option>
+                <option value="ISO 6 (GMP Grade B/C)">ISO Class 6 (GMP Grade B/C)</option>
+                <option value="ISO 7 (GMP Grade C / Class 10,000)" selected>ISO Class 7 (GMP Grade C / Class 10,000)</option>
+                <option value="ISO 8 (GMP Grade D / Class 100,000)">ISO Class 8 (GMP Grade D / Class 100,000)</option>
+                <option value="Not Sure / Need Advice">Not Sure / Need Engineering Advice</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="approxArea">Estimated Floor Area (m²)</label>
+              <input type="text" id="approxArea" name="approxArea" class="form-input" placeholder="e.g. 100 m²">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="timeline">Target Completion Timeline</label>
+              <select id="timeline" name="timeline" class="form-select">
+                <option value="Immediate (< 3 Months)">Immediate (< 3 Months)</option>
+                <option value="3 - 6 Months" selected>3 - 6 Months</option>
+                <option value="6 - 12 Months">6 - 12 Months</option>
+                <option value="Future Planning">Future Planning</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="additionalNotes">Project Description & Special Requirements</label>
+            <textarea id="additionalNotes" name="additionalNotes" class="form-textarea" placeholder="Describe the layout, process equipment to be housed, temperature/humidity requirements, or specific airlock needs..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-accent btn-lg" style="width:100%;">Submit Quote Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const quoteForm = document.getElementById("simpleQuoteForm");
+      if (!quoteForm) return;
+
+      quoteForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const submitBtn = quoteForm.querySelector("button[type=submit]");
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
+
+        try {
+          const formData = new FormData(quoteForm);
+          const data = Object.fromEntries(formData.entries());
+
+          // Map approxArea to dimensions if provided
+          const areaNum = parseFloat(data.approxArea) || 50;
+          data.roomLength = Math.round(Math.sqrt(areaNum * 1.5));
+          data.roomWidth = Math.round(areaNum / data.roomLength);
+          data.roomHeight = 3.0;
+
+          const response = await fetch("/api/quote", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          const result = await response.json();
+          if (response.ok && result.success) {
+            window.showToast(result.message, "success");
+            quoteForm.reset();
+          } else {
+            window.showToast(result.message || "Failed to submit quote.", "error");
+          }
+        } catch (err) {
+          window.showToast("An error occurred while submitting.", "error");
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

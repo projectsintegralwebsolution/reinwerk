@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Header -->
+  <section class="hero" style="padding:48px 0;">
+    <div class="container">
+      <h1>Products & Services</h1>
+      <p style="margin-bottom:0;">Turnkey cleanroom systems, precision ventilation, airlocks, and testing services.</p>
+    </div>
+  </section>
+
+  <!-- Services List -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex; flex-direction:column; gap:32px;">
+        <!-- Service 1 -->
+        <div class="card">
+          <div class="grid-2" style="gap:24px; align-items:center;">
+            <div class="card-img" style="height:240px; margin:0; border-radius:4px;">
+              <img src="/images/cleanrooms/modular-suite.jpg" alt="Modular Cleanroom Systems">
+            </div>
+            <div>
+              <h2 style="font-size:1.5rem; color:var(--primary-navy); margin-bottom:8px;">1. Modular Cleanroom Systems</h2>
+              <p style="color:var(--slate-text); margin-bottom:14px;">
+                Pre-engineered wall and ceiling systems designed for rapid, clean installation. Our modular panels feature flush joints, excellent thermal insulation, and full resistance to standard cleanroom disinfectants and cleaning agents.
+              </p>
+              <ul class="card-list">
+                <li>Cleanliness range: ISO Class 3 to ISO Class 9 (GMP Grades A to D)</li>
+                <li>Panel cores: Aluminum honeycomb, PIR foam, or mineral wool</li>
+                <li>Surfaces: Anti-static HPL, powder-coated steel, or 304/316L stainless steel</li>
+                <li>Walk-on ceiling systems with integrated LED lighting</li>
+              </ul>
+              <a href="/quote" class="btn btn-primary btn-sm">Request Quote for Modular Cleanroom</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="card">
+          <div class="grid-2" style="gap:24px; align-items:center;">
+            <div class="card-img" style="height:240px; margin:0; border-radius:4px;">
+              <img src="/images/cleanrooms/hvac-filtration.jpg" alt="Cleanroom HVAC & Air Handling">
+            </div>
+            <div>
+              <h2 style="font-size:1.5rem; color:var(--primary-navy); margin-bottom:8px;">2. Cleanroom HVAC & Air Handling</h2>
+              <p style="color:var(--slate-text); margin-bottom:14px;">
+                Custom ventilation and air filtration systems engineered to maintain strict airborne particle limits, positive or negative differential pressure cascades, and stable temperature/humidity conditions.
+              </p>
+              <ul class="card-list">
+                <li>Terminal H14 HEPA (99.995%) and U15 ULPA filtration</li>
+                <li>Air change rates from 15 to over 100 ACH depending on classification</li>
+                <li>Active differential pressure cascade control between zones</li>
+                <li>Energy-efficient EC fans and variable airflow modes</li>
+              </ul>
+              <a href="/quote" class="btn btn-primary btn-sm">Request Quote for HVAC System</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="card">
+          <div class="grid-2" style="gap:24px; align-items:center;">
+            <div class="card-img" style="height:240px; margin:0; border-radius:4px;">
+              <img src="/images/cleanrooms/equipment-passbox.jpg" alt="Cleanroom Equipment & Airlocks">
+            </div>
+            <div>
+              <h2 style="font-size:1.5rem; color:var(--primary-navy); margin-bottom:8px;">3. Cleanroom Equipment & Airlocks</h2>
+              <p style="color:var(--slate-text); margin-bottom:14px;">
+                Essential barrier equipment designed to eliminate contamination risks during personnel ingress and material transfer between different cleanroom grades.
+              </p>
+              <ul class="card-list">
+                <li>Dynamic pass-through boxes with HEPA filtration and interlocked doors</li>
+                <li>High-velocity personnel air showers with adjustable nozzles</li>
+                <li>Laminar flow workstations and clean benches</li>
+                <li>Stainless steel step-over benches and gowning furniture</li>
+              </ul>
+              <a href="/quote" class="btn btn-primary btn-sm">Request Equipment Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="card">
+          <div class="grid-2" style="gap:24px; align-items:center;">
+            <div class="card-img" style="height:240px; margin:0; border-radius:4px;">
+              <img src="/images/cleanrooms/validation-testing.jpg" alt="Validation & Testing Services">
+            </div>
+            <div>
+              <h2 style="font-size:1.5rem; color:var(--primary-navy); margin-bottom:8px;">4. Validation, Testing & Servicing</h2>
+              <p style="color:var(--slate-text); margin-bottom:14px;">
+                Independent qualification and metrology services to verify that your controlled environment complies with ISO 14644-1 and GMP requirements before and during production.
+              </p>
+              <ul class="card-list">
+                <li>Complete DQ, IQ, OQ, and PQ protocol execution</li>
+                <li>Airborne particle counting at rest and in operation</li>
+                <li>HEPA filter integrity testing (DEHS / DOP aerosol challenge)</li>
+                <li>Airflow velocity, differential pressure, and recovery time testing</li>
+              </ul>
+              <a href="/quote" class="btn btn-primary btn-sm">Request Validation Audit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bar -->
+  <section class="cta-bar">
+    <div class="container">
+      <h2>Have a Specific Cleanroom Inquiry?</h2>
+      <p>Submit your room dimensions and target classification to our technical team.</p>
+      <a href="/quote" class="btn btn-accent">Request a Free Estimate</a>
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<!-- Top Bar -->
+<div class="topbar">
+  <div class="container">
+    <div>
+      <span>REINWERK Cleanroom & Plant Engineering</span>
+      <span style="margin-left: 14px; opacity: 0.8;">| ISO 14644 & GMP Compliance</span>
+    </div>
+    <div>
+      <a href="tel:+497118947200">Tel: +49 (0) 711 8947 200</a>
+      <a href="mailto:info@reinwerk-cleanroom.com">info@reinwerk-cleanroom.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Header -->
+<header class="header">
+  <div class="container">
+    <div class="navbar">
+      <a href="/" class="logo">
+        <img src="/images/logo.jpg" alt="REINWERK Logo">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="/" class="<%= activeRoute === 'home' ? 'active' : '' %>">Home</a>
+        <a href="/about" class="<%= activeRoute === 'about' ? 'active' : '' %>">About Us</a>
+        <a href="/services" class="<%= activeRoute === 'services' ? 'active' : '' %>">Services</a>
+        <a href="/industries" class="<%= activeRoute === 'industries' ? 'active' : '' %>">Industries</a>
+        <a href="/projects" class="<%= activeRoute === 'projects' ? 'active' : '' %>">Projects</a>
+        <a href="/contact" class="<%= activeRoute === 'contact' ? 'active' : '' %>">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="/quote" class="btn btn-accent">Request Quote</a>
+        <button class="mobile-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </div>
+</header>

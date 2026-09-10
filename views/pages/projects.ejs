@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Header -->
+  <section class="hero" style="padding:48px 0;">
+    <div class="container">
+      <h1>Our Projects</h1>
+      <p style="margin-bottom:0;">A selection of cleanroom installations designed, constructed, and validated by REINWERK.</p>
+    </div>
+  </section>
+
+  <!-- Projects List -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex; flex-direction:column; gap:32px;">
+        <% projects.forEach(p => { %>
+          <div class="card">
+            <div class="grid-2" style="gap:24px; align-items:center;">
+              <div class="card-img" style="height:220px; margin:0; border-radius:4px;">
+                <img src="<%= p.thumbnail %>" alt="<%= p.title %>">
+              </div>
+              <div>
+                <span style="font-size:0.8125rem; font-weight:700; color:var(--accent-red); text-transform:uppercase;">
+                  <%= p.clientSector %> • <%= p.location %> (<%= p.completionYear %>)
+                </span>
+                <h2 style="font-size:1.35rem; color:var(--primary-navy); margin:6px 0 10px;"><%= p.title %></h2>
+                <p style="font-size:0.9375rem; color:var(--slate-text); margin-bottom:12px;"><%= p.summary %></p>
+                <div style="background:var(--slate-light); padding:10px 14px; border-radius:4px; font-size:0.875rem; margin-bottom:16px;">
+                  <strong>Specifications:</strong> <%= p.area %> Floor Area | <%= p.isoClass %> | <%= p.gmpGrade %>
+                </div>
+                <a href="/quote" class="btn btn-outline btn-sm">Request Similar Project</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bar -->
+  <section class="cta-bar">
+    <div class="container">
+      <h2>Have a Facility Requiring Cleanroom Construction?</h2>
+      <p>Speak to our engineers to schedule a preliminary site assessment.</p>
+      <a href="/contact" class="btn btn-accent">Contact Our Office</a>
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>
