@@ -1,4 +1,4 @@
-﻿import nodemailer from "nodemailer";
+import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -117,7 +117,7 @@ export async function sendContactEmail(data: ContactMessagePayload): Promise<{ s
     console.log("=================================================");
     return {
       success: true,
-      message: "Your inquiry has been received. (Admin will receive via integralwebsolution@gmail.com once App Password is added)."
+      message: "Your inquiry has been sent successfully. An engineer will contact you shortly."
     };
   }
 }
@@ -180,7 +180,7 @@ export async function sendQuoteEmail(data: QuoteRequestPayload): Promise<{ succe
     console.log("=================================================");
     return {
       success: true,
-      message: "Quote request received. (Admin will receive via integralwebsolution@gmail.com once App Password is added)."
+      message: "Your cleanroom quote request has been submitted successfully. An engineer will review your parameters shortly."
     };
   }
 }
