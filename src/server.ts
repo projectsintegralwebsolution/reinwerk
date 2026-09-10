@@ -1,8 +1,9 @@
-﻿import express, { Request, Response, NextFunction } from "express";
+import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import dotenv from "dotenv";
+import fs from "fs";
 import { pagesRouter } from "./routes/pages.js";
 import { apiRouter } from "./routes/api.js";
 import { servicesData } from "./data/services.js";
@@ -22,7 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Determine root directory (handles both tsx execution and compiled dist execution)
-const rootDir = process.cwd();
+const parentDir = path.resolve(__dirname, "..");
+const rootDir = fs.existsSync(path.join(parentDir, "views")) ? parentDir : process.cwd();
 
 // Set View Engine
 app.set("view engine", "ejs");
