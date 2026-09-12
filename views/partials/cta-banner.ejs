@@ -1,20 +1,22 @@
-﻿<!-- Reusable Consultation Banner -->
+<!-- Reusable Consultation Banner -->
 <section class="section-sm">
   <div class="container">
     <div class="cta-banner">
-      <span class="eyebrow" style="color:#38bdf8;">Plan Your Controlled Environment</span>
-      <h2>Ready to Build or Upgrade Your Cleanroom Facility?</h2>
+      <span class="eyebrow" style="color:#38bdf8;"><%= lang === 'en' ? 'Plan Your Controlled Environment' : 'Planen Sie Ihre Reinraumumgebung' %></span>
+      <h2><%= lang === 'en' ? 'Ready to Build or Upgrade Your Cleanroom Facility?' : 'Planen Sie den Bau oder die Modernisierung Ihres Reinraums?' %></h2>
       <p>
-        Whether you require a turnkey GMP Grade A sterile suite, an ISO Class 4 microelectronics cleanroom, or regulatory re-certification, REINWERK delivers German engineering excellence from concept to handover.
+        <%= lang === 'en' 
+          ? 'Whether you require a turnkey GMP Grade A sterile suite, an ISO Class 4 microelectronics cleanroom, or regulatory re-certification, REINWERK delivers German engineering excellence from concept to handover.'
+          : 'Ob schlüsselfertige GMP-Klasse A Abfüllsuite, ISO-Klasse 4 Mikroelektronik-Reinraum oder behördliche Re-Zertifizierung: REINWERK liefert deutsche Ingenieurskunst von der Konzeption bis zur Übergabe.' %>
       </p>
       <div class="cta-banner-buttons">
         <a href="/quote" class="btn btn-accent btn-lg">
           <i data-feather="calculator"></i>
-          Request Cleanroom Quote
+          <%= lang === 'en' ? 'Request Cleanroom Quote' : 'Reinraum-Angebot anfordern' %>
         </a>
         <a href="/contact" class="btn btn-white-outline btn-lg">
           <i data-feather="phone-call"></i>
-          Speak with an Engineer
+          <%= lang === 'en' ? 'Speak with an Engineer' : 'Mit einem Ingenieur sprechen' %>
         </a>
       </div>
     </div>

@@ -1,4 +1,174 @@
-export const industriesData = [
+export const industriesDataDe = [
+    {
+        id: "pharmaceutical-biotech",
+        slug: "pharmaceutical-biotech",
+        title: "Pharmazeutische Industrie & Biotechnologie",
+        shortDescription: "Aseptische Herstellbereiche, sterile Abfülllinien und Bioprozess-Reinräume nach EU-GMP Annex 1 und FDA 21 CFR Part 211.",
+        heroImage: "/images/cleanrooms/industry-pharma.jpg",
+        isoClass: "ISO 4 bis ISO 8",
+        gmpGrade: "GMP-Grade A, B, C & D",
+        icon: "activity",
+        keyChallenges: [
+            "Strenge Begrenzung mikrobieller und luftgetragener Partikel",
+            "Resistenz gegen aggressive Reinigungs- und Begasungsmittel (z.B. VHP)",
+            "Vermeidung von Kreuzkontaminationen zwischen verschiedenen Wirkstoffen",
+            "Umfangreiche behördliche Audits durch Regierungspräsidien, EMA und FDA"
+        ],
+        reinwerkSolutions: [
+            "Flächenbündige Monobloc-Wandsysteme mit fugenlosen Hohlkehlsockeln",
+            "Stufenlose Differenzdruckkaskaden mit automatisiertem Alarmierungssystem",
+            "Integrierte Grade-A-Laminar-Flow-Hauben über offenen Abfüllstationen",
+            "Vollständige DQ/IQ/OQ/PQ-Validierungsdokumentation mit Partikelmessungen"
+        ],
+        typicalApplications: [
+            "Sterile Flüssigabfüllung von Vials, Ampullen und Fertigspritzen",
+            "Monoklonale Antikörper (mAbs) und rekombinante Proteinsynthese",
+            "Zell- und Gentherapie-Reinräume (ATMP)",
+            "Wirkstoff-Einwaage- und Isolatorarbeitsplätze (APIs)"
+        ],
+        complianceStandards: [
+            "EU-GMP Leitfaden Annex 1 (Herstellung steriler Arzneimittel)",
+            "FDA 21 CFR Part 211 (Current Good Manufacturing Practice)",
+            "DIN EN ISO 14644-1:2015 und ISO 14644-2",
+            "ISPE Good Practice Guides"
+        ]
+    },
+    {
+        id: "semiconductor-microelectronics",
+        slug: "semiconductor-microelectronics",
+        title: "Halbleitertechnik & Mikroelektronik",
+        shortDescription: "Ultra-Reinstraumumgebungen mit Sub-Mikron-Partikelfiltration, ESD-Schutzkonzepten und Abscheidung luftgetragener molekularer Kontaminationen (AMC).",
+        heroImage: "/images/cleanrooms/industry-semiconductor.jpg",
+        isoClass: "ISO 1 bis ISO 5",
+        gmpGrade: "N/A (Mikroelektronik)",
+        icon: "cpu",
+        keyChallenges: [
+            "Partikel kleiner als 0,1 µm führen zu irreversiblen Wafer-Defekten",
+            "Elektrostatische Entladungen (ESD) zerstören empfindliche Halbleiterstrukturen",
+            "Molekulare Ausgasungen (AMC) verursachen chemische Vergiftung von Oberflächen",
+            "Mikrovibrationen von HLK-Maschinen stören hochauflösende Lithographiesysteme"
+        ],
+        reinwerkSolutions: [
+            "Flächendeckende Decken-ULPA-Filtration mit schwingungsarmen EC-Ventilatoren",
+            "Perforierte Doppelbodensysteme für turbulenzarme Verdrängungsströmung",
+            "Statisch ableitende Wand- und Bodenbeläge (ESD-Widerstand 10^6 - 10^9 Ω)",
+            "Chemische Gasphasenfiltration (Chemisorption / Aktivkohle) gegen AMCs"
+        ],
+        typicalApplications: [
+            "Silizium-Wafer-Photolithographie und Ätzprozesse",
+            "Advanced Packaging, Wafer-Dicing und Wire-Bonding",
+            "Entwicklung mikroelektromechanischer Systeme (MEMS)",
+            "Forschung an Quantencomputer-Prozessoren"
+        ],
+        complianceStandards: [
+            "DIN EN ISO 14644-1 (ISO-Klassen 1 bis 5)",
+            "SEMI-Standards (S2, S8, F21 Airborne Molecular Contamination)",
+            "DIN EN 61340-5-1 (Schutz vor elektrostatischen Phänomenen)"
+        ]
+    },
+    {
+        id: "medical-devices",
+        slug: "medical-devices",
+        title: "Medizintechnik & Implantate",
+        shortDescription: "Kontrollierte Produktionsumgebungen für die präzise Montage, Reinigung und Sterilverpackung von Medizinprodukten und Implantaten.",
+        heroImage: "/images/cleanrooms/industry-medtech.jpg",
+        isoClass: "ISO 6 bis ISO 8",
+        gmpGrade: "Grade C & D konform",
+        icon: "heart-pulse",
+        keyChallenges: [
+            "Strenge Begrenzung von Bioburden (Keimbelastung) und Fremdpartikeln",
+            "Partikelemissionen aus Verpackungsmaterialien und manuellen Arbeitsschritten",
+            "Räumliche Trennung unsteriler Rohwaren von der Endmontage",
+            "Nachweispflicht nach ISO 13485 und EU-MDR 2017/745"
+        ],
+        reinwerkSolutions: [
+            "Reinigungsfreundliche Hardwall-Verbundpaneele mit kratzfesten Oberflächen",
+            "Personenschleusen mit Step-Over-Bänken und berührungsloser Türsteuerung",
+            "Hohe Luftwechselzahlen (25-45 LW/h) für rasche Partikelerholzeiten (< 15 Min.)",
+            "Integrierte Ultraschall-Reinigungsbecken und Heißsiegel-Verpackungsstationen"
+        ],
+        typicalApplications: [
+            "Orthopädische Gelenkimplantate und Knochenschrauben",
+            "Kardiovaskuläre Stents, Katheter und Herzklappensysteme",
+            "Montage von In-vitro-Diagnostik-Kits (IVD) und Mikrotiterplatten",
+            "Herstellung intraokularer Linsen und ophthalmologischer Instrumente"
+        ],
+        complianceStandards: [
+            "DIN EN ISO 14644-1 und ISO 14644-3",
+            "DIN EN ISO 13485 (Qualitätsmanagementsysteme für Medizinprodukte)",
+            "ISO 14698-1/2 (Biokontaminationskontrolle in Reinräumen)",
+            "EU Medical Device Regulation (MDR 2017/745)"
+        ]
+    },
+    {
+        id: "aerospace-optical",
+        slug: "aerospace-optical",
+        title: "Luft- und Raumfahrt & Präzisionsoptik",
+        shortDescription: "Großraum-Reinräume mit Kranbahnanbindung, ausgasungsarmen Werkstoffen und Laminarströmung für Satellitenbau und optische Baugruppen.",
+        heroImage: "/images/cleanrooms/industry-aerospace.jpg",
+        isoClass: "ISO 5 bis ISO 8",
+        gmpGrade: "N/A (Präzisionstechnik)",
+        icon: "compass",
+        keyChallenges: [
+            "Große lichte Raumhöhen für Raumfahrzeuge und Satellitenmodule erforderlich",
+            "Ausgasung flüchtiger organischer Stoffe (VOC), die Spiegelflächen trüben",
+            "Schwere Traglasten für Deckenkrane und mobile Montagevorrichtungen",
+            "Temperaturgradienten über große vertikale Hallenhöhen"
+        ],
+        reinwerkSolutions: [
+            "High-Bay-Reinraumstrukturen mit integrierten Kranbahn-Abfangungen",
+            "Zertifizierte extrem ausgasungsarme Dichtstoffe und lösemittelfreie Paneele",
+            "Schichtlüftungskonzepte für gleichmäßige Temperatur von Boden bis Decke",
+            "Mobile Reinraumzelte und Einhausungen für Zwischenlagerung sensibler Optiken"
+        ],
+        typicalApplications: [
+            "Nutzlastintegration von Satelliten und Sensorkalibrierung",
+            "Präzisionsbeschichtung von Hochenergie-Laserspiegeln und Prismen",
+            "Montage gyroskopischer Navigations- und Avioniksysteme",
+            "Planetary-Protection-Reinräume für Raumfahrtmissionen"
+        ],
+        complianceStandards: [
+            "ECSS-Q-ST-70-01C (ESA Space Product Assurance)",
+            "NASA-STD-6016 (Material- und Prozessstandards für Raumfahrzeuge)",
+            "DIN EN ISO 14644-1 (ISO-Klasse 5 bis ISO-Klasse 8)"
+        ]
+    },
+    {
+        id: "healthcare-laboratories",
+        slug: "healthcare-laboratories",
+        title: "Klinikapotheken & Sicherheitslabore",
+        shortDescription: "Zytostatika-Zubereitung, sterile Zytostatika-Werkbänke, Krankenhausapotheken und BSL-2/BSL-3-Containment-Suites.",
+        heroImage: "/images/cleanrooms/industry-lab.jpg",
+        isoClass: "ISO 5 bis ISO 7",
+        gmpGrade: "GMP-Grade B & C",
+        icon: "shield",
+        keyChallenges: [
+            "Doppelte Schutzfunktion: Produktschutz vor Keimen und Personenschutz vor toxischen Zytostatika",
+            "Unterdruckkaskaden zur Verhinderung des Austritts gefährlicher Substanzen",
+            "Aseptische Zubereitung unter zertifizierten Reinraumbedingungen",
+            "Kompakte Grundrisse durch bauliche Einschränkungen in Bestandsgebäuden"
+        ],
+        reinwerkSolutions: [
+            "Umschaltbare Über-/Unterdruckschleusen und Sicherheitsräume",
+            "Abluft-HEPA-Filterung mit berührungsfreiem Safe-Change-System (Bag-In/Bag-Out)",
+            "Maßgeschneiderte Grundrisse angepasst an Klinik-Bestandsetagen",
+            "Integrierte Gegensprechanlagen, Schleusensteuerungen und Sichtfenster"
+        ],
+        typicalApplications: [
+            "Zentrale Zytostatika- und parenterale Ernährungseinheiten (TPN)",
+            "Radiopharmazeutische Präparationseinheiten",
+            "Stammzellverarbeitung und Kryo-Konservierung",
+            "BSL-3-Forschungslabore für infektiöse Pathogene"
+        ],
+        complianceStandards: [
+            "ApBetrO (Apothekenbetriebsordnung § 35)",
+            "DIN EN ISO 14644-1 und VDI 2083",
+            "DIN EN 12469 (Mikrobiologische Sicherheitswerkbänke)",
+            "TRBA (Technische Regeln für Biologische Arbeitsstoffe)"
+        ]
+    }
+];
+export const industriesDataEn = [
     {
         id: "pharmaceutical-biotech",
         slug: "pharmaceutical-biotech",
@@ -168,6 +338,11 @@ export const industriesData = [
         ]
     }
 ];
-export function getIndustryBySlug(slug) {
-    return industriesData.find(industry => industry.slug === slug);
+export function getLocalizedIndustries(lang = "de") {
+    return lang === "en" ? industriesDataEn : industriesDataDe;
+}
+export const industriesData = industriesDataDe;
+export function getIndustryBySlug(slug, lang = "de") {
+    const list = getLocalizedIndustries(lang);
+    return list.find(industry => industry.slug === slug);
 }

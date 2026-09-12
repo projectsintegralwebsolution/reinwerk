@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="<%= lang %>">
 <head>
   <%- include('../partials/head') %>
 </head>
@@ -10,9 +10,9 @@
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumbs">
-        <a href="/">Home</a>
+        <a href="/"><%= t('nav.home') %></a>
         <span>/</span>
-        <a href="/services">Services</a>
+        <a href="/services"><%= t('nav.services') %></a>
         <span>/</span>
         <span><%= service.title %></span>
       </div>
@@ -30,8 +30,8 @@
       <div class="service-overview-grid">
         <!-- Overview Text & Features -->
         <div>
-          <span class="eyebrow">Technical Overview</span>
-          <h2 class="section-title">Engineered Contamination Control</h2>
+          <span class="eyebrow"><%= lang === 'en' ? 'Technical Overview' : 'Technische Übersicht' %></span>
+          <h2 class="section-title"><%= lang === 'en' ? 'Engineered Contamination Control' : 'Gezielte Kontaminationskontrolle' %></h2>
           
           <% service.overview.forEach(p => { %>
             <p style="font-size:1.0625rem; color:var(--slate-700); margin-bottom:16px; line-height:1.7;">
@@ -40,7 +40,9 @@
           <% }) %>
 
           <!-- Key Features Grid -->
-          <h3 style="font-size:1.5rem; margin:36px 0 20px; color:var(--primary-navy);">Key Engineering Features</h3>
+          <h3 style="font-size:1.5rem; margin:36px 0 20px; color:var(--primary-navy);">
+            <%= lang === 'en' ? 'Key Engineering Features' : 'Wesentliche Leistungsmerkmale' %>
+          </h3>
           <div class="grid-2">
             <% service.keyFeatures.forEach(feat => { %>
               <div style="background:var(--slate-50); padding:24px; border-radius:var(--radius-md); border:1px solid var(--slate-200);">
@@ -56,7 +58,9 @@
           </div>
 
           <!-- Process Workflow -->
-          <h3 style="font-size:1.5rem; margin:40px 0 20px; color:var(--primary-navy);">Deployment & Delivery Lifecycle</h3>
+          <h3 style="font-size:1.5rem; margin:40px 0 20px; color:var(--primary-navy);">
+            <%= lang === 'en' ? 'Deployment & Delivery Lifecycle' : 'Projektablauf & Inbetriebnahme' %>
+          </h3>
           <div style="display:flex; flex-direction:column; gap:16px;">
             <% service.processSteps.forEach(st => { %>
               <div style="display:flex; gap:16px; align-items:flex-start; background:var(--white); border:1px solid var(--slate-200); padding:16px 20px; border-radius:var(--radius-md);">
@@ -73,7 +77,7 @@
         <!-- Specifications Sidebar -->
         <div>
           <div class="spec-box">
-            <h3 class="spec-box-title">Technical Specifications</h3>
+            <h3 class="spec-box-title"><%= lang === 'en' ? 'Technical Specifications' : 'Technische Spezifikationen' %></h3>
             <table class="spec-table">
               <% service.specifications.forEach(spec => { %>
                 <tr>
@@ -84,7 +88,9 @@
             </table>
 
             <div style="margin-top:28px;">
-              <h4 style="font-size:0.9375rem; font-weight:700; margin-bottom:10px; color:var(--slate-800);">Typical Applications:</h4>
+              <h4 style="font-size:0.9375rem; font-weight:700; margin-bottom:10px; color:var(--slate-800);">
+                <%= lang === 'en' ? 'Typical Applications:' : 'Typische Anwendungsbereiche:' %>
+              </h4>
               <div style="display:flex; flex-wrap:wrap; gap:6px;">
                 <% service.applications.forEach(app => { %>
                   <span class="deliverable-tag"><%= app %></span>
@@ -95,7 +101,7 @@
             <div style="margin-top:32px;">
               <a href="/quote" class="btn btn-accent" style="width:100%; text-align:center;">
                 <i data-feather="file-text"></i>
-                Request Custom Quotation
+                <%= lang === 'en' ? 'Request Custom Quotation' : 'Individuelles Angebot anfordern' %>
               </a>
             </div>
           </div>
@@ -106,8 +112,8 @@
       <% if (service.faqs && service.faqs.length > 0) { %>
         <div style="margin-top:64px; border-top:1px solid var(--slate-200); padding-top:48px;">
           <div class="section-header text-left">
-            <span class="eyebrow">Engineering FAQs</span>
-            <h3 class="section-title">Frequently Asked Questions</h3>
+            <span class="eyebrow"><%= lang === 'en' ? 'Engineering FAQs' : 'Häufig gestellte Fragen' %></span>
+            <h3 class="section-title"><%= lang === 'en' ? 'Frequently Asked Questions' : 'Fragen und Antworten' %></h3>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
             <% service.faqs.forEach(faq => { %>

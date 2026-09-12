@@ -1,4 +1,4 @@
-export const projectsData = [
+export const projectsDataEn = [
     {
         id: "project-biopharma-suite",
         slug: "biopharma-sterile-fill-finish",
@@ -130,6 +130,143 @@ export const projectsData = [
         ]
     }
 ];
-export function getProjectBySlug(slug) {
-    return projectsData.find(project => project.slug === slug);
+export const projectsDataDe = [
+    {
+        id: "project-biopharma-suite",
+        slug: "biopharma-sterile-fill-finish",
+        title: "Biopharmazeutische Aseptische Abfüllanlage",
+        clientSector: "Pharmazeutische Industrie",
+        location: "Bayern, Deutschland",
+        area: "650 m²",
+        isoClass: "ISO 5 / ISO 7",
+        gmpGrade: "GMP-Klasse B & C mit Klasse-A-RABS",
+        completionYear: "2025",
+        thumbnail: "/images/cleanrooms/project-biopharma.jpg",
+        summary: "Schlüsselfertige Planung, Vorfertigung und Qualifizierung einer biopharmazeutischen Abfüllanlage mit integrierten Barrieresystemen (RABS) und automatisierter Umgebungsüberwachung.",
+        scopeOfWork: [
+            "Monoblock-Wandpaneele mit flächenbündig integrierten Isolierglasscheiben",
+            "Kanalisiertes HLK-System mit H14-HEPA-Endfiltern und 45 Luftwechseln/Stunde (LW/h)",
+            "Automatische Druckkaskadensteuerung mit 15-Pa-Druckstufen zwischen Reinraumzonen",
+            "Dynamische Materialschleusen mit VHP-Dekontaminationsanschlüssen",
+            "Vollständiges DQ/IQ/OQ/PQ-Qualifizierungsdossier nach EU-GMP-Leitfaden Anhang 1"
+        ],
+        results: [
+            { metric: "650 m²", label: "Reinraum-Nutzfläche" },
+            { metric: "0 KBE", label: "Partikel- und Keimaudits" },
+            { metric: "< 12 Min.", label: "Erholzeit der Reinraumklasse" },
+            { metric: "14 Wochen", label: "Fertigung bis IQ-Übergabe" }
+        ]
+    },
+    {
+        id: "project-semiconductor-fab",
+        slug: "semiconductor-photolithography-lab",
+        title: "Hochpräziser Photolithographie-Reinraum",
+        clientSector: "Halbleiter & Mikroelektronik",
+        location: "Dresden Silicon Saxony, Deutschland",
+        area: "340 m²",
+        isoClass: "ISO-Klasse 4 (Klasse 10)",
+        gmpGrade: "N/A",
+        completionYear: "2024",
+        thumbnail: "/images/cleanrooms/project-semiconductor.jpg",
+        summary: "Hochleistungs-Mikroelektronik-Reinraum für Submikron-Lithographie und Wafer-Inspektion mit perforiertem Doppelboden und chemischer Luftfiltration.",
+        scopeOfWork: [
+            "100 % Deckenbelegung mit schwingungsarmen EC-Ventilator-Filter-Einheiten (FFUs)",
+            "Plenum-Doppelboden mit ableitfähigen, antistatischen Vinylfliesen (ESD-geschützt)",
+            "Präzisionstemperierung (21,0 °C ± 0,1 °C) und Feuchteregelung (45 % ± 1,5 % r.F.)",
+            "Chemisorptionsfilter gegen luftgetragene molekulare Verunreinigungen (AMC)",
+            "Schwingungsgedämpfte Fundament-Entkopplung für Lithographie-Stepper"
+        ],
+        results: [
+            { metric: "ISO 4", label: "Zertifizierte Reinraumklasse" },
+            { metric: "± 0,1 °C", label: "Thermische Langzeitstabilität" },
+            { metric: "10^7 Ω", label: "ESD-Oberflächenwiderstand" },
+            { metric: "99,9995 %", label: "U15-ULPA-Abscheidegrad" }
+        ]
+    },
+    {
+        id: "project-medtech-facility",
+        slug: "orthopedic-implant-manufacturing",
+        title: "Präzisionsfertigung für orthopädische Implantate",
+        clientSector: "Medizintechnik",
+        location: "Tuttlingen, Deutschland",
+        area: "480 m²",
+        isoClass: "ISO-Klasse 7 (Klasse 10.000)",
+        gmpGrade: "GMP-Klasse C konform",
+        completionYear: "2025",
+        thumbnail: "/images/cleanrooms/project-medtech.jpg",
+        summary: "Kontrollierte Reinraumumgebung für robotergestütztes Polieren, Ultraschallreinigung und sterile Blisterverpackung von Titan- und Wirbelsäulenimplantaten.",
+        scopeOfWork: [
+            "HPL-Hartwand-Modulwand-System mit flächenbündig silikonisierten Fugen",
+            "Reinraumdecke mit energieeffizienten LED-Tropfenleuchten (1000 Lux)",
+            "3-stufige Personalschleusenkaskade mit Übersteigbänken und Sohlenreinigern",
+            "Integrierte Laminar-Flow-Reinstraumarbeitsplätze zur visuellen Blisterprüfung",
+            "Vollständige Zertifizierung nach ISO 13485 und DIN EN ISO 14644-1:2015"
+        ],
+        results: [
+            { metric: "480 m²", label: "Schlüsselfertige Gesamtfläche" },
+            { metric: "35 LW/h", label: "Luftwechselrate" },
+            { metric: "Null Fehler", label: "MDR-Audit-Freigabe" },
+            { metric: "11 Wochen", label: "Bauzeit vor Ort" }
+        ]
+    },
+    {
+        id: "project-cell-therapy",
+        slug: "cell-gene-therapy-modular-facility",
+        title: "Modulares Zell- & Gentherapie GMP-Labor",
+        clientSector: "Biotechnologie",
+        location: "Region Basel, Schweiz",
+        area: "220 m²",
+        isoClass: "ISO-Klasse 6 / ISO-Klasse 7",
+        gmpGrade: "GMP-Klasse B Suite",
+        completionYear: "2024",
+        thumbnail: "/images/cleanrooms/project-celltherapy.jpg",
+        summary: "Modulare Reinraumanlage zur schnellen Inbetriebnahme für autologe Zelltherapie-Prozesse mit integrierten Sicherheitswerkbänken und unabhängiger Zonen-HLK.",
+        scopeOfWork: [
+            "Vorgefertigte, demontierbare Kassettenwandpaneele mit antimikrobieller Pulverbeschichtung",
+            "Eigenständiges Lüftungsgerät mit 100 % Frischluftbetrieb und aktiver Abluftfiltration",
+            "Verriegelte Magnetschiebetüren mit berührungslosen Sensoren und Notentriegelung",
+            "Kontinuierliche optische Partikelmessung mit Anbindung an das Reinraum-Leitsystem",
+            "Vollständige H2O2-Begasungsbeständigkeit (VHP-Resistenz) aller Oberflächen"
+        ],
+        results: [
+            { metric: "220 m²", label: "Zelltherapie-Reinraumfläche" },
+            { metric: "GMP-Klasse B", label: "Zertifizierte Reinraumumgebung" },
+            { metric: "100 %", label: "VHP-Begasungsbeständigkeit" },
+            { metric: "8 Wochen", label: "Projektlaufzeit bis Inbetriebnahme" }
+        ]
+    },
+    {
+        id: "project-aerospace-optics",
+        slug: "satellite-optics-integration-facility",
+        title: "High-Bay-Reinraum für Satellitenoptik & Raumfahrt",
+        clientSector: "Luft- & Raumfahrt",
+        location: "Friedrichshafen, Deutschland",
+        area: "520 m²",
+        isoClass: "ISO-Klasse 5 / ISO-Klasse 6",
+        gmpGrade: "N/A",
+        completionYear: "2023",
+        thumbnail: "/images/cleanrooms/project-aerospace.jpg",
+        summary: "Spezialreinraum mit großer lichter Höhe für die Montage von Satellitenoptiken mit integriertem Hallenkran und ausgasungsfreien Bauteilen.",
+        scopeOfWork: [
+            "Modulare Stahltragwerkstruktur mit 7,5 Metern lichter Innenhöhe",
+            "Integrierter 5-Tonnen-Hallenkran mit partikeldichten Faltenbälgen",
+            "Ausgasungsfreie Paneele und VOC-freie Dichtstoffe nach ESA ECSS-Standards",
+            "Laminar-Flow-Deckenhaube über dem zentralen optischen Justiertisch",
+            "Kontinuierliches Monitoring für Partikel und luftgetragene Moleküle (AMC)"
+        ],
+        results: [
+            { metric: "7,5 m", label: "Lichte Innenraumhöhe" },
+            { metric: "5 Tonnen", label: "Tragkraft des Hallenkrans" },
+            { metric: "ISO 5", label: "Zertifizierte Übergabeklasse" },
+            { metric: "0 VOC", label: "Oberflächenausgasung" }
+        ]
+    }
+];
+export const projectsData = projectsDataDe; // Default German
+export function getLocalizedProjects(lang = "de") {
+    return lang === "en" ? projectsDataEn : projectsDataDe;
+}
+export function getProjectBySlug(slug, lang = "de") {
+    const list = getLocalizedProjects(lang);
+    return list.find(project => project.slug === slug);
 }

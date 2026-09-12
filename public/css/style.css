@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    REINWERK REINRAUM- UND ANLAGENTECHNIK - CLEAN BASIC STARTER WEBSITE
    ========================================================================== */
 
@@ -505,5 +505,104 @@ h1, h2, h3, h4, h5 {
   }
   .hero h1 {
     font-size: 1.875rem;
+  }
+}
+
+/* ==========================================================================
+   Bilingual Language Switcher Styles
+   ========================================================================== */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.lang-switch .lang-btn {
+  color: #cbd5e1 !important;
+  text-decoration: none;
+  padding: 2px 7px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  margin: 0 !important;
+}
+
+.lang-switch .lang-btn:hover {
+  color: var(--white) !important;
+}
+
+.lang-switch .lang-btn.active {
+  background: var(--accent-red) !important;
+  color: var(--white) !important;
+}
+
+.lang-switch .lang-divider {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.75rem;
+}
+
+/* Header Navbar Language Switcher */
+.header-lang-switch {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 4px 8px;
+  margin-right: 12px;
+}
+
+.header-lang-switch .lang-btn {
+  color: #475569 !important;
+}
+
+.header-lang-switch .lang-btn:hover {
+  color: var(--primary-dark) !important;
+}
+
+.header-lang-switch .lang-btn.active {
+  background: var(--primary-dark) !important;
+  color: var(--white) !important;
+}
+
+.header-lang-switch .lang-divider {
+  color: #94a3b8;
+}
+
+.mobile-lang-switch {
+  display: none;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--slate-border);
+}
+
+.mobile-lang-switch .lang-btn {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  font-weight: 600;
+  text-align: center;
+  color: var(--slate-dark);
+}
+
+.mobile-lang-switch .lang-btn.active {
+  background: var(--accent-red);
+  color: var(--white) !important;
+}
+
+@media (max-width: 900px) {
+  .topbar-tagline {
+    display: none;
+  }
+  .header-lang-switch {
+    display: none;
+  }
+  .mobile-lang-switch {
+    display: flex;
   }
 }

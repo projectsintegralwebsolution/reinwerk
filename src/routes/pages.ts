@@ -1,148 +1,214 @@
-﻿import { Router, Request, Response } from "express";
-import { servicesData, getServiceBySlug } from "../data/services.js";
-import { industriesData, getIndustryBySlug } from "../data/industries.js";
-import { projectsData, getProjectBySlug } from "../data/projects.js";
-import { processStepsData } from "../data/process.js";
+import { Router, Request, Response } from "express";
+import { getLocalizedServices, getServiceBySlug } from "../data/services.js";
+import { getLocalizedIndustries } from "../data/industries.js";
+import { getLocalizedProjects } from "../data/projects.js";
+import { getLocalizedProcess } from "../data/process.js";
+import { Language, translations } from "../i18n/translations.js";
 
 export const pagesRouter = Router();
 
-// Helper to inject common layout data
-function getCommonData(activeRoute: string, title: string, description: string) {
+// Helper to inject common layout data with active language
+function getCommonData(req: Request, res: Response, activeRoute: string, title: string, description: string) {
+  const lang = (res.locals.lang || "de") as Language;
+  const servicesList = getLocalizedServices(lang);
+  const industriesList = getLocalizedIndustries(lang);
+
   return {
     activeRoute,
+    lang,
     metaTitle: `${title} | REINWERK Reinraum- und Anlagentechnik`,
     metaDescription: description,
-    servicesList: servicesData,
-    industriesList: industriesData,
+    servicesList,
+    industriesList,
     currentYear: new Date().getFullYear()
   };
 }
 
 // 1. Home Page
 pagesRouter.get("/", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const t = translations[lang];
+
   res.render("pages/index", {
     ...getCommonData(
+      req,
+      res,
       "home",
-      "German-Engineered Turnkey Cleanrooms & Controlled Environments",
-      "REINWERK engineers, manufactures, and validates certified modular cleanrooms, HVAC air handling systems, and material airlocks compliant with ISO 14644 and EU-GMP standards."
+      t.meta.homeTitle,
+      t.meta.homeDesc
     ),
-    services: servicesData,
-    industries: industriesData,
-    featuredProjects: projectsData.slice(0, 3),
-    processSteps: processStepsData
+    services: getLocalizedServices(lang),
+    industries: getLocalizedIndustries(lang),
+    featuredProjects: getLocalizedProjects(lang).slice(0, 3),
+    processSteps: getLocalizedProcess(lang)
   });
 });
 
 // 2. About Us Page
 pagesRouter.get("/about", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const t = translations[lang];
+
   res.render("pages/about", {
     ...getCommonData(
+      req,
+      res,
       "about",
-      "About Us - Precision Cleanroom & Facility Engineering",
-      "Learn about REINWERK Reinraum- und Anlagentechnik, our German engineering heritage, core values, quality assurance standards, and turnkey project delivery."
+      t.meta.aboutTitle,
+      t.meta.aboutDesc
     )
   });
 });
 
 // 3. Products / Services Overview
 pagesRouter.get("/services", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const t = translations[lang];
+
   res.render("pages/services", {
     ...getCommonData(
+      req,
+      res,
       "services",
-      "Cleanroom Engineering Services & Modular Systems",
-      "Comprehensive cleanroom services: Modular hardwall and monobloc envelopes, HVAC air filtration, airlocks, dynamic pass-throughs, and DQ/IQ/OQ/PQ validation."
+      t.meta.servicesTitle,
+      t.meta.servicesDesc
     ),
-    services: servicesData
+    services: getLocalizedServices(lang)
   });
 });
 
 // 4. Product / Service Details (Modular, HVAC, Equipment, Validation)
 pagesRouter.get("/services/:slug", (req: Request, res: Response) => {
-  const service = getServiceBySlug(req.params.slug);
+  const lang = (res.locals.lang || "de") as Language;
+  const service = getServiceBySlug(req.params.slug, lang);
+
   if (!service) {
+    const isEn = lang === "en";
     return res.status(404).render("pages/404", {
-      ...getCommonData("404", "Service Not Found", "The requested cleanroom service could not be found.")
+      ...getCommonData(
+        req,
+        res,
+        "404",
+        isEn ? "Service Not Found" : "Dienstleistung nicht gefunden",
+        isEn ? "The requested cleanroom service could not be found." : "Die angeforderte Reinraum-Dienstleistung konnte nicht gefunden werden."
+      )
     });
   }
 
   res.render("pages/service-detail", {
     ...getCommonData(
+      req,
+      res,
       "services",
       service.title,
       service.shortDescription
     ),
     service,
-    allServices: servicesData
+    allServices: getLocalizedServices(lang)
   });
 });
 
 // 5. Industries / Applications
 pagesRouter.get("/industries", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const t = translations[lang];
+
   res.render("pages/industries", {
     ...getCommonData(
+      req,
+      res,
       "industries",
-      "Cleanroom Solutions by Industry & Sector",
-      "Tailored contamination control solutions for Pharmaceuticals, Biotech, Semiconductor, Medical Devices, Aerospace, and Healthcare laboratories."
+      t.meta.industriesTitle,
+      t.meta.industriesDesc
     ),
-    industries: industriesData
+    industries: getLocalizedIndustries(lang)
   });
 });
 
 // 6. Why Choose Us / Quality & Compliance
 pagesRouter.get("/why-choose-us", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const isEn = lang === "en";
+
   res.render("pages/why-choose-us", {
     ...getCommonData(
+      req,
+      res,
       "why-choose-us",
-      "Why Choose REINWERK - German Engineering & Regulatory Compliance",
-      "Discover the REINWERK advantage: Off-site precision prefabrication, strict ISO 14644 & cGMP compliance, GAMP 5 validation protocols, and turnkey single-source accountability."
+      isEn ? "Why Choose REINWERK - German Engineering & Regulatory Compliance" : "Warum REINWERK - Deutsche Ingenieurskunst & GMP-Konformität",
+      isEn
+        ? "Discover the REINWERK advantage: Off-site precision prefabrication, strict ISO 14644 & cGMP compliance, GAMP 5 validation protocols, and turnkey single-source accountability."
+        : "Entdecken Sie den REINWERK-Vorteil: Industrielle Vorfertigung, strenge ISO 14644- und cGMP-Konformität, GAMP 5-Validierung und schlüsselfertige Gesamtabwicklung aus einer Hand."
     )
   });
 });
 
 // 7. Projects / Solutions Showcase
 pagesRouter.get("/projects", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const t = translations[lang];
+
   res.render("pages/projects", {
     ...getCommonData(
+      req,
+      res,
       "projects",
-      "Turnkey Cleanroom Projects & Case Studies",
-      "Explore REINWERK's portfolio of completed turnkey cleanroom facilities across Europe, from GMP Grade B biopharma suites to ISO Class 4 semiconductor labs."
+      t.meta.projectsTitle,
+      t.meta.projectsDesc
     ),
-    projects: projectsData
+    projects: getLocalizedProjects(lang)
   });
 });
 
 // 8. Process & Technology
 pagesRouter.get("/process", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const isEn = lang === "en";
+
   res.render("pages/process", {
     ...getCommonData(
+      req,
+      res,
       "process",
-      "Our 5-Stage Cleanroom Engineering Methodology",
-      "From conceptual URS formulation and 3D BIM clash detection to off-site prefabrication, air balancing, and formal DQ/IQ/OQ/PQ validation."
+      isEn ? "Our 5-Stage Cleanroom Engineering Methodology" : "Unsere 5-Phasen-Reinraumentwicklung",
+      isEn
+        ? "From conceptual URS formulation and 3D BIM clash detection to off-site prefabrication, air balancing, and formal DQ/IQ/OQ/PQ validation."
+        : "Vom Lastenheft (URS) und digitaler 3D-BIM-Kollisionsprüfung bis zu industrieller Vorfertigung, Luftabgleich und DQ/IQ/OQ/PQ-Qualifizierung."
     ),
-    steps: processStepsData
+    steps: getLocalizedProcess(lang)
   });
 });
 
 // 9. Contact Us
 pagesRouter.get("/contact", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const t = translations[lang];
+
   res.render("pages/contact", {
     ...getCommonData(
+      req,
+      res,
       "contact",
-      "Contact Cleanroom Engineering Desk",
-      "Get in touch with REINWERK's cleanroom consultants and technical engineers for new facility inquiries, revamps, or validation audits."
+      t.meta.contactTitle,
+      t.meta.contactDesc
     )
   });
 });
 
 // 10. Request a Quote / Specification Estimator
 pagesRouter.get("/quote", (req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const t = translations[lang];
+
   res.render("pages/quote", {
     ...getCommonData(
+      req,
+      res,
       "quote",
-      "Request a Cleanroom Quotation & Specification Estimator",
-      "Configure your cleanroom parameters: room dimensions, target ISO classification or GMP grade, airflow design, and wall finishes for an instant preliminary estimate."
+      t.meta.quoteTitle,
+      t.meta.quoteDesc
     ),
-    services: servicesData,
-    industries: industriesData
+    services: getLocalizedServices(lang),
+    industries: getLocalizedIndustries(lang)
   });
 });

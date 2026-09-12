@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="<%= lang %>">
 <head>
   <%- include('../partials/head') %>
 </head>
@@ -10,15 +10,17 @@
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumbs">
-        <a href="/">Home</a>
+        <a href="/"><%= t('nav.home') %></a>
         <span>/</span>
-        <span>Why Choose Us</span>
+        <span><%= lang === 'en' ? 'Why Choose Us' : 'Warum REINWERK' %></span>
       </div>
       <div class="page-hero-content">
-        <span class="eyebrow" style="color:#38bdf8;">The REINWERK Advantage</span>
-        <h1>Engineered for Compliance, Speed, and Longevity</h1>
+        <span class="eyebrow" style="color:#38bdf8;"><%= lang === 'en' ? 'The REINWERK Advantage' : 'Der REINWERK-Vorteil' %></span>
+        <h1><%= lang === 'en' ? 'Engineered for Compliance, Speed, and Longevity' : 'Entwickelt für Konformität, Termintreue & Langlebigkeit' %></h1>
         <p>
-          Cleanrooms are mission-critical production assets. Discover why leading pharmaceutical manufacturers, microelectronics fabs, and medtech leaders choose REINWERK for turnkey contamination control.
+          <%= lang === 'en' 
+            ? 'Cleanrooms are mission-critical production assets. Discover why leading pharmaceutical manufacturers, microelectronics fabs, and medtech leaders choose REINWERK for turnkey contamination control.'
+            : 'Reinräume sind geschäftskritische Produktionsanlagen. Erfahren Sie, warum führende Pharmazeuten, Halbleiterhersteller und Medizintechnikunternehmen auf schlüsselfertige Reinraumlösungen von REINWERK setzen.' %>
         </p>
       </div>
     </div>
@@ -28,10 +30,12 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Our Competitive Edge</span>
-        <h2 class="section-title">Built Upon Four Pillars of Excellence</h2>
+        <span class="eyebrow"><%= lang === 'en' ? 'Our Competitive Edge' : 'Unsere Kernkompetenzen' %></span>
+        <h2 class="section-title"><%= lang === 'en' ? 'Built Upon Four Pillars of Excellence' : 'Fundiert auf vier Säulen ingenieurtechnischer Exzellenz' %></h2>
         <p class="section-subtitle">
-          We combine German engineering precision, off-site modular prefabrication, and rigorous validation into a frictionless client experience.
+          <%= lang === 'en' 
+            ? 'We combine German engineering precision, off-site modular prefabrication, and rigorous validation into a frictionless client experience.'
+            : 'Wir vereinen deutsche Ingenieurspräzision, industrielle Vorfertigung und lückenlose Validierung zu einem reibungslosen Projekterfolg.' %>
         </p>
       </div>
 
@@ -41,10 +45,14 @@
             <div style="width:48px; height:48px; background:var(--clean-blue-light); color:var(--primary-navy); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center;">
               <i data-feather="check-square" style="width:24px; height:24px;"></i>
             </div>
-            <h3 style="font-size:1.375rem;">Single-Source Turnkey Accountability</h3>
+            <h3 style="font-size:1.375rem;">
+              <%= lang === 'en' ? 'Single-Source Turnkey Accountability' : 'Schlüsselfertige Gesamtabwicklung aus einer Hand' %>
+            </h3>
           </div>
           <p style="font-size:0.9375rem; color:var(--slate-600); line-height:1.7;">
-            Traditional cleanroom builds involve disjointed architects, HVAC contractors, partition installers, and third-party certifiers—frequently causing costly finger-pointing when pressure cascades or particle limits fail. REINWERK takes 100% turnkey responsibility from conceptual BIM modeling through final certified handover.
+            <%= lang === 'en'
+              ? 'Traditional cleanroom builds involve disjointed architects, HVAC contractors, partition installers, and third-party certifiers—frequently causing costly finger-pointing when pressure cascades or particle limits fail. REINWERK takes 100% turnkey responsibility from conceptual BIM modeling through final certified handover.'
+              : 'Klassische Reinraumprojekte scheitern oft an Schnittstellenproblemen zwischen Trockenbau, Lüftungsbau und Qualifizierern. REINWERK übernimmt die Gesamtschuldnerschaft: Von der BIM-Ausführungsplanung bis zur behördlichen Endabnahme haben Sie einen verantwortlichen Partner.' %>
           </p>
         </div>
 
@@ -53,10 +61,14 @@
             <div style="width:48px; height:48px; background:#fee2e2; color:var(--accent-red); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center;">
               <i data-feather="clock" style="width:24px; height:24px;"></i>
             </div>
-            <h3 style="font-size:1.375rem;">Up to 50% Shorter On-site Delivery</h3>
+            <h3 style="font-size:1.375rem;">
+              <%= lang === 'en' ? 'Up to 50% Shorter On-site Delivery' : 'Bis zu 50 % verkürzte Montagezeiten vor Ort' %>
+            </h3>
           </div>
           <p style="font-size:0.9375rem; color:var(--slate-600); line-height:1.7;">
-            By manufacturing precision wall cassettes, walk-on ceilings, and dynamic pass-through airlocks off-site in clean factory conditions, we perform parallel construction while base building readiness is prepared. On-site installation is completely dust-free, non-invasive, and completed in weeks rather than months.
+            <%= lang === 'en'
+              ? 'By manufacturing precision wall cassettes, walk-on ceilings, and dynamic pass-through airlocks off-site in clean factory conditions, we perform parallel construction while base building readiness is prepared. On-site installation is completely dust-free, non-invasive, and completed in weeks rather than months.'
+              : 'Dank industrieller Vorfertigung von Wandkassetten, Deckenrastern und Durchreicheschleusen fertigen wir parallel zur Rohbauvorbereitung. Die Endmontage vor Ort erfolgt partikelfrei, leise und in wenigen Wochen statt Monaten.' %>
           </p>
         </div>
 
@@ -65,10 +77,14 @@
             <div style="width:48px; height:48px; background:var(--clean-blue-light); color:#0284c7; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center;">
               <i data-feather="file-text" style="width:24px; height:24px;"></i>
             </div>
-            <h3 style="font-size:1.375rem;">Audit-Proof GAMP 5 Validation</h3>
+            <h3 style="font-size:1.375rem;">
+              <%= lang === 'en' ? 'Audit-Proof GAMP 5 Validation' : 'Auditsichere GAMP 5 Validierungsdokumentation' %>
+            </h3>
           </div>
           <p style="font-size:0.9375rem; color:var(--slate-600); line-height:1.7;">
-            Every cleanroom is supplied with comprehensive Design Qualification (DQ), Installation Qualification (IQ), Operational Qualification (OQ), and Performance Qualification (PQ) dossiers. Fully compliant with EU-GMP Annex 1 and FDA 21 CFR Part 211, our documentation is proven in international regulatory audits.
+            <%= lang === 'en'
+              ? 'Every cleanroom is supplied with comprehensive Design Qualification (DQ), Installation Qualification (IQ), Operational Qualification (OQ), and Performance Qualification (PQ) dossiers. Fully compliant with EU-GMP Annex 1 and FDA 21 CFR Part 211, our documentation is proven in international regulatory audits.'
+              : 'Jede Anlage wird mit lückenlosen DQ-, IQ-, OQ- und PQ-Qualifizierungsdossiers übergeben. Vollständig konform mit EU-GMP Leitfaden Anhang 1 und FDA 21 CFR Part 211 halten unsere Nachweise jeder behördlichen Inspektion stand.' %>
           </p>
         </div>
 
@@ -77,10 +93,14 @@
             <div style="width:48px; height:48px; background:#ecfdf5; color:#10b981; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center;">
               <i data-feather="activity" style="width:24px; height:24px;"></i>
             </div>
-            <h3 style="font-size:1.375rem;">Energy-Optimized HVAC Engineering</h3>
+            <h3 style="font-size:1.375rem;">
+              <%= lang === 'en' ? 'Energy-Optimized HVAC Engineering' : 'Energieoptimierte Klimatechnik (HLK)' %>
+            </h3>
           </div>
           <p style="font-size:0.9375rem; color:var(--slate-600); line-height:1.7;">
-            Cleanrooms can consume up to 25 times more energy than standard commercial facilities. We integrate direct-drive EC centrifugal fans (IE5 efficiency), intelligent enthalpy heat recovery systems, and automated night-setback airflow balancing—cutting operational power overheads by up to 35%.
+            <%= lang === 'en'
+              ? 'Cleanrooms can consume up to 25 times more energy than standard commercial facilities. We integrate direct-drive EC centrifugal fans (IE5 efficiency), intelligent enthalpy heat recovery systems, and automated night-setback airflow balancing—cutting operational power overheads by up to 35%.'
+              : 'Reinräume gehören zu den energieintensivsten Industrieanlagen. Durch hocheffiziente EC-Ventilatoren (IE5-Standard), Enthalpie-Wärmerückgewinnung und bedarfsgerechte Nachtabsenkung senken wir die Betriebskosten um bis zu 35 %.' %>
           </p>
         </div>
       </div>
@@ -91,10 +111,12 @@
   <section class="section section-bg-alt">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Direct Comparison</span>
-        <h2 class="section-title">REINWERK Modular vs. Traditional Drywall</h2>
+        <span class="eyebrow"><%= lang === 'en' ? 'Direct Comparison' : 'Direkter Vergleich' %></span>
+        <h2 class="section-title"><%= lang === 'en' ? 'REINWERK Modular vs. Traditional Drywall' : 'REINWERK Modulbau vs. Konventioneller Trockenbau' %></h2>
         <p class="section-subtitle">
-          See why modular cleanroom construction is rapidly replacing conventional construction for regulated environments.
+          <%= lang === 'en'
+            ? 'See why modular cleanroom construction is rapidly replacing conventional construction for regulated environments.'
+            : 'Erfahren Sie, warum industrieller Reinraum-Modulbau klassische Gipskartonkonstruktionen verdrängt.' %>
         </p>
       </div>
 
@@ -102,41 +124,41 @@
         <table class="spec-table" style="width:100%; border-collapse:collapse;">
           <thead style="background:var(--primary-navy); color:var(--white);">
             <tr>
-              <th style="padding:16px 24px; text-align:left; font-size:0.9375rem;">Criteria</th>
-              <th style="padding:16px 24px; text-align:left; font-size:0.9375rem; background:var(--primary-navy-dark); color:#38bdf8;">REINWERK Modular Cleanroom</th>
-              <th style="padding:16px 24px; text-align:left; font-size:0.9375rem; color:var(--slate-300);">Traditional Drywall Cleanroom</th>
+              <th style="padding:16px 24px; text-align:left; font-size:0.9375rem;"><%= lang === 'en' ? 'Criteria' : 'Kriterium' %></th>
+              <th style="padding:16px 24px; text-align:left; font-size:0.9375rem; background:var(--primary-navy-dark); color:#38bdf8;"><%= lang === 'en' ? 'REINWERK Modular Cleanroom' : 'REINWERK Modulreinraum' %></th>
+              <th style="padding:16px 24px; text-align:left; font-size:0.9375rem; color:var(--slate-300);"><%= lang === 'en' ? 'Traditional Drywall Cleanroom' : 'Konventioneller Trockenbau' %></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:16px 24px; font-weight:700;">On-site Build Timeline</td>
-              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);">4 - 8 Weeks (Parallel Off-site Fabrication)</td>
-              <td style="padding:16px 24px; color:var(--slate-600);">16 - 28 Weeks (Serial On-site Trades)</td>
+              <td style="padding:16px 24px; font-weight:700;"><%= lang === 'en' ? 'On-site Build Timeline' : 'Bauzeit vor Ort' %></td>
+              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);"><%= lang === 'en' ? '4 - 8 Weeks (Parallel Off-site Fabrication)' : '4 - 8 Wochen (Parallele Werksfertigung)' %></td>
+              <td style="padding:16px 24px; color:var(--slate-600);"><%= lang === 'en' ? '16 - 28 Weeks (Serial On-site Trades)' : '16 - 28 Wochen (Sequenzielle Gewerke)' %></td>
             </tr>
             <tr>
-              <td style="padding:16px 24px; font-weight:700;">Installation Cleanliness</td>
-              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);">Dust-free mechanical assembly with zero wet trades</td>
-              <td style="padding:16px 24px; color:var(--slate-600);">Heavy drywall sanding dust, paint fumes, prolonged curing</td>
+              <td style="padding:16px 24px; font-weight:700;"><%= lang === 'en' ? 'Installation Cleanliness' : 'Montage-Sauberkeit' %></td>
+              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);"><%= lang === 'en' ? 'Dust-free mechanical assembly with zero wet trades' : 'Partikelfreie Trockenmontage ohne Nassgewerke' %></td>
+              <td style="padding:16px 24px; color:var(--slate-600);"><%= lang === 'en' ? 'Heavy drywall sanding dust, paint fumes, prolonged curing' : 'Hohe Staubbelastung beim Schleifen, Farbausdünstungen' %></td>
             </tr>
             <tr>
-              <td style="padding:16px 24px; font-weight:700;">Future Modifiability</td>
-              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);">100% demountable & reconfigurable with zero waste</td>
-              <td style="padding:16px 24px; color:var(--slate-600);">Destructive demolition required for any alteration</td>
+              <td style="padding:16px 24px; font-weight:700;"><%= lang === 'en' ? 'Future Modifiability' : 'Flexibilität & Umbaubarkeit' %></td>
+              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);"><%= lang === 'en' ? '100% demountable & reconfigurable with zero waste' : '100 % zerstörungsfrei demontier- und erweiterbar' %></td>
+              <td style="padding:16px 24px; color:var(--slate-600);"><%= lang === 'en' ? 'Destructive demolition required for any alteration' : 'Aufwendiger Abbruch und Neubau bei Änderungen' %></td>
             </tr>
             <tr>
-              <td style="padding:16px 24px; font-weight:700;">Chemical / VHP Resistance</td>
-              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);">Impermeable HPL, PVDF, or 316L stainless surfaces</td>
-              <td style="padding:16px 24px; color:var(--slate-600);">Porous paint layers prone to bubbling and degradation</td>
+              <td style="padding:16px 24px; font-weight:700;"><%= lang === 'en' ? 'Chemical / VHP Resistance' : 'VHP- & Desinfektionsbeständigkeit' %></td>
+              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);"><%= lang === 'en' ? 'Impermeable HPL, PVDF, or 316L stainless surfaces' : 'Porenfreie HPL-, Pulver- oder Edelstahlflächen' %></td>
+              <td style="padding:16px 24px; color:var(--slate-600);"><%= lang === 'en' ? 'Porous paint layers prone to bubbling and degradation' : 'Poröse Farbanstriche neigen zu Rissbildung' %></td>
             </tr>
             <tr>
-              <td style="padding:16px 24px; font-weight:700;">Air Tightness</td>
-              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);">Class 4 EN 12207 airtight silicone-free dry gaskets</td>
-              <td style="padding:16px 24px; color:var(--slate-600);">Prone to hairline micro-cracks over settling cycles</td>
+              <td style="padding:16px 24px; font-weight:700;"><%= lang === 'en' ? 'Air Tightness' : 'Dichtheitsklasse der Hülle' %></td>
+              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);"><%= lang === 'en' ? 'Class 4 EN 12207 airtight silicone-free dry gaskets' : 'Klasse 4 nach DIN EN 12207 (silikonfreie Trockendichtungen)' %></td>
+              <td style="padding:16px 24px; color:var(--slate-600);"><%= lang === 'en' ? 'Prone to hairline micro-cracks over settling cycles' : 'Gefahr von Haarrissen durch Setzungsbewegungen' %></td>
             </tr>
             <tr>
-              <td style="padding:16px 24px; font-weight:700;">Depreciation & Tax Benefit</td>
-              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);">Often classified as tangible equipment (accelerated 7-yr)</td>
-              <td style="padding:16px 24px; color:var(--slate-600);">Classified as real estate building asset (39-yr lifespan)</td>
+              <td style="padding:16px 24px; font-weight:700;"><%= lang === 'en' ? 'Depreciation & Tax Benefit' : 'Steuerliche Abschreibung' %></td>
+              <td style="padding:16px 24px; font-weight:600; color:var(--primary-navy);"><%= lang === 'en' ? 'Often classified as tangible equipment (accelerated 7-yr)' : 'Als Betriebsvorrichtung aktivierbar (schnellere AfA)' %></td>
+              <td style="padding:16px 24px; color:var(--slate-600);"><%= lang === 'en' ? 'Classified as real estate building asset (39-yr lifespan)' : 'Gebäudebestandteil mit langer Abschreibungsdauer' %></td>
             </tr>
           </tbody>
         </table>

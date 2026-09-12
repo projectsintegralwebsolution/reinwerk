@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="<%= lang %>">
 <head>
   <%- include('../partials/head') %>
 </head>
@@ -9,8 +9,8 @@
   <!-- Page Header -->
   <section class="hero" style="padding:48px 0;">
     <div class="container">
-      <h1>Industries We Serve</h1>
-      <p style="margin-bottom:0;">Engineered cleanroom environments tailored to the regulatory demands of each sector.</p>
+      <h1><%= t('industriesPage.pageTitle') %></h1>
+      <p style="margin-bottom:0;"><%= t('industriesPage.pageSubtitle') %></p>
     </div>
   </section>
 
@@ -18,69 +18,26 @@
   <section class="section">
     <div class="container">
       <div class="grid-2" style="gap:30px;">
-        <div class="card">
-          <div class="card-img" style="height:200px;">
-            <img src="/images/cleanrooms/industry-pharma.jpg" alt="Pharmaceutical Cleanrooms">
+        <% industries.forEach(ind => { %>
+          <div class="card">
+            <div class="card-img" style="height:200px;">
+              <img src="<%= ind.heroImage %>" alt="<%= ind.title %>">
+            </div>
+            <h2 class="card-title"><%= ind.title %></h2>
+            <p class="card-desc">
+              <strong><%= lang === 'en' ? 'Typical Standard:' : 'Typischer Reinraumstandard:' %></strong> 
+              <%= ind.isoClass %> <% if (ind.gmpGrade && ind.gmpGrade !== 'N/A') { %> / <%= ind.gmpGrade %><% } %>
+            </p>
+            <p class="card-desc">
+              <%= ind.shortDescription %>
+            </p>
+            <ul class="card-list">
+              <% ind.reinwerkSolutions.slice(0, 3).forEach(sol => { %>
+                <li><%= sol %></li>
+              <% }) %>
+            </ul>
           </div>
-          <h2 class="card-title">Pharmaceutical & Biotechnology</h2>
-          <p class="card-desc"><strong>Typical Standard:</strong> ISO 4 to ISO 8 / GMP Grades A, B, C & D</p>
-          <p class="card-desc">
-            Aseptic compounding suites, sterile fill-finish operations, and bioprocessing cleanrooms engineered to EU-GMP Annex 1 and FDA 21 CFR Part 211.
-          </p>
-          <ul class="card-list">
-            <li>Monobloc flush wall panels with coved sanitary floorings</li>
-            <li>Differential pressure cascades to prevent cross-contamination</li>
-            <li>Grade A laminar airflow hoods over filling zones</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-img" style="height:200px;">
-            <img src="/images/cleanrooms/industry-semiconductor.jpg" alt="Semiconductor Cleanrooms">
-          </div>
-          <h2 class="card-title">Semiconductor & Electronics</h2>
-          <p class="card-desc"><strong>Typical Standard:</strong> ISO Class 1 to ISO Class 5</p>
-          <p class="card-desc">
-            Sub-micron particle filtration, electrostatic discharge (ESD) mitigation, and Airborne Molecular Contamination (AMC) control for wafer manufacturing and microelectronics.
-          </p>
-          <ul class="card-list">
-            <li>ULPA ceiling filter coverage with low-vibration EC fans</li>
-            <li>Perforated raised access floor systems</li>
-            <li>Static-dissipative ESD-compliant wall and floor finishes</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-img" style="height:200px;">
-            <img src="/images/cleanrooms/industry-medtech.jpg" alt="Medical Device Cleanrooms">
-          </div>
-          <h2 class="card-title">Medical Device Manufacturing</h2>
-          <p class="card-desc"><strong>Typical Standard:</strong> ISO Class 6 to ISO Class 8 (ISO 13485)</p>
-          <p class="card-desc">
-            Controlled environments for the assembly, packaging, and bioburden inspection of implantable medical devices, catheters, and sterile diagnostic kits.
-          </p>
-          <ul class="card-list">
-            <li>Cleanable, impact-resistant modular hardwall panels</li>
-            <li>Airlocks with step-over benches and hands-free door controls</li>
-            <li>High air change rates with fast particle recovery times</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-img" style="height:200px;">
-            <img src="/images/cleanrooms/industry-aerospace.jpg" alt="Aerospace Cleanrooms">
-          </div>
-          <h2 class="card-title">Aerospace & Precision Optics</h2>
-          <p class="card-desc"><strong>Typical Standard:</strong> ISO Class 5 to ISO Class 8</p>
-          <p class="card-desc">
-            Large-span cleanrooms with overhead crane integration, outgassing-free materials, and laminar airflow for satellite and laser optics assembly.
-          </p>
-          <ul class="card-list">
-            <li>High internal clear heights (up to 7.5m) for spacecraft hardware</li>
-            <li>Ultra-low outgassing sealants and solvent-free panel coatings</li>
-            <li>Uniform temperature stability across large room volumes</li>
-          </ul>
-        </div>
+        <% }) %>
       </div>
     </div>
   </section>
@@ -88,9 +45,9 @@
   <!-- CTA Bar -->
   <section class="cta-bar">
     <div class="container">
-      <h2>Looking for an Industry-Specific Cleanroom?</h2>
-      <p>Our engineering team can guide you on the right classification and layout for your project.</p>
-      <a href="/quote" class="btn btn-accent">Request Quote</a>
+      <h2><%= t('industriesPage.ctaTitle') %></h2>
+      <p><%= t('industriesPage.ctaDesc') %></p>
+      <a href="/quote" class="btn btn-accent"><%= t('common.requestQuote') %></a>
     </div>
   </section>
 

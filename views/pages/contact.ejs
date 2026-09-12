@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
   <%- include('../partials/head') %>
 </head>
@@ -9,8 +9,8 @@
   <!-- Page Header -->
   <section class="hero" style="padding:48px 0;">
     <div class="container">
-      <h1>Contact Us</h1>
-      <p style="margin-bottom:0;">Get in touch with our cleanroom engineering desk for project inquiries or technical support.</p>
+      <h1><%= t('contactPage.pageTitle') %></h1>
+      <p style="margin-bottom:0;"><%= t('contactPage.pageSubtitle') %></p>
     </div>
   </section>
 
@@ -20,76 +20,77 @@
       <div class="grid-2" style="gap:40px; align-items:flex-start;">
         <!-- Consultation & Inquiries Information -->
         <div>
-          <h2>Engineering Consultation & Inquiries</h2>
+          <h2><%= t('contactPage.consultTitle') %></h2>
           <p style="color:var(--slate-text); margin-bottom:24px;">
-            Please submit your project specifications or technical questions using the contact form. Our engineering team reviews all submissions and responds within one business day.
+            <%= t('contactPage.consultDesc') %>
           </p>
 
           <div class="card" style="margin-bottom:20px;">
-            <h3 class="card-title">Consultation Process</h3>
+            <h3 class="card-title"><%= t('contactPage.processTitle') %></h3>
             <ul class="card-list" style="margin-bottom:0;">
-              <li><strong>Requirement Analysis:</strong> Review of target classification (ISO 14644 / GMP Annex 1) and airflow requirements.</li>
-              <li><strong>Technical Architecture:</strong> Guidance on modular wall systems, differential pressure cascades, and HVAC filtration.</li>
-              <li><strong>Quotation & Timeline:</strong> Preliminary budget estimates and production scheduling for turnkey installation.</li>
+              <li><strong><%= t('contactPage.proc1Title') %></strong> <%= t('contactPage.proc1Desc') %></li>
+              <li><strong><%= t('contactPage.proc2Title') %></strong> <%= t('contactPage.proc2Desc') %></li>
+              <li><strong><%= t('contactPage.proc3Title') %></strong> <%= t('contactPage.proc3Desc') %></li>
             </ul>
           </div>
 
           <div class="card">
-            <h3 class="card-title">Custom Project Quotation</h3>
+            <h3 class="card-title"><%= t('contactPage.customQuoteTitle') %></h3>
             <p style="color:var(--slate-text); font-size:0.9375rem; margin-bottom:14px;">
-              Have room dimensions, cleanroom tier, and operational parameters ready? Use our online quotation request form to receive a structured estimate.
+              <%= t('contactPage.customQuoteDesc') %>
             </p>
-            <a href="/quote" class="btn btn-primary" style="padding:8px 18px; font-size:0.875rem;">Open Quote Request Form</a>
+            <a href="/quote" class="btn btn-primary" style="padding:8px 18px; font-size:0.875rem;"><%= t('common.openQuoteForm') %></a>
           </div>
         </div>
 
         <!-- Contact Form -->
         <div class="card" style="padding:32px;">
-          <h2 style="font-size:1.5rem; color:var(--primary-navy); margin-bottom:6px;">Send a Message</h2>
+          <h2 style="font-size:1.5rem; color:var(--primary-navy); margin-bottom:6px;"><%= t('contactPage.formTitle') %></h2>
           <p style="font-size:0.9375rem; color:var(--slate-text); margin-bottom:24px;">
-            Fill in your details below and an engineer will get back to you promptly.
+            <%= t('contactPage.formSubtitle') %>
           </p>
 
           <form id="contactForm">
+            <input type="hidden" name="lang" value="<%= lang %>">
             <div class="form-group">
-              <label class="form-label" for="name">Your Name *</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Dr. Thomas Keller" required>
+              <label class="form-label" for="name"><%= t('contactPage.nameLabel') %></label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="<%= t('contactPage.namePlaceholder') %>" required>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="email">Email Address *</label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="name@company.com" required>
+                <label class="form-label" for="email"><%= t('contactPage.emailLabel') %></label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="<%= t('contactPage.emailPlaceholder') %>" required>
               </div>
               <div class="form-group">
-                <label class="form-label" for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+49 ...">
+                <label class="form-label" for="phone"><%= t('contactPage.phoneLabel') %></label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="<%= t('contactPage.phonePlaceholder') %>">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="company">Company / Institution</label>
-                <input type="text" id="company" name="company" class="form-input" placeholder="e.g. BioTech Solutions GmbH">
+                <label class="form-label" for="company"><%= t('contactPage.companyLabel') %></label>
+                <input type="text" id="company" name="company" class="form-input" placeholder="<%= t('contactPage.companyPlaceholder') %>">
               </div>
               <div class="form-group">
-                <label class="form-label" for="sector">Industry Sector</label>
+                <label class="form-label" for="sector"><%= t('contactPage.sectorLabel') %></label>
                 <select id="sector" name="sector" class="form-select">
-                  <option value="Pharmaceutical / Biotech">Pharmaceutical & Biotech</option>
-                  <option value="Semiconductor / Electronics">Semiconductor & Electronics</option>
-                  <option value="Medical Devices">Medical Devices</option>
-                  <option value="Aerospace / Optics">Aerospace & Optics</option>
-                  <option value="Other">Other Application</option>
+                  <option value="Pharmaceutical / Biotech"><%= t('contactPage.sectorPharma') %></option>
+                  <option value="Semiconductor / Electronics"><%= t('contactPage.sectorSemi') %></option>
+                  <option value="Medical Devices"><%= t('contactPage.sectorMedtech') %></option>
+                  <option value="Aerospace / Optics"><%= t('contactPage.sectorAero') %></option>
+                  <option value="Other"><%= t('contactPage.sectorOther') %></option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="message">Message *</label>
-              <textarea id="message" name="message" class="form-textarea" placeholder="Please describe your cleanroom requirements or question..." required></textarea>
+              <label class="form-label" for="message"><%= t('contactPage.messageLabel') %></label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="<%= t('contactPage.messagePlaceholder') %>" required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-accent" style="width:100%;">Send Message</button>
+            <button type="submit" class="btn btn-accent" style="width:100%;"><%= t('contactPage.submitBtn') %></button>
           </form>
         </div>
       </div>

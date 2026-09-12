@@ -1,4 +1,4 @@
-export const processStepsData = [
+export const processStepsDataEn = [
     {
         stepNumber: "01",
         title: "Consultation & URS Definition",
@@ -105,3 +105,114 @@ export const processStepsData = [
         icon: "award"
     }
 ];
+export const processStepsDataDe = [
+    {
+        stepNumber: "01",
+        title: "Beratung & URS-Definition",
+        subtitle: "Strategische Anforderungsanalyse",
+        description: "Jeder erfolgreiche Reinraum beginnt mit einer präzisen Analyse der Prozessanforderungen, Kontaminationsrisiken, Personenströme und regulatorischen Richtlinien. Wir erstellen ein prüffähiges Lastenheft (User Requirement Specification – URS) und legen das architektonische Fundament.",
+        keyActivities: [
+            "Prozessflussanalyse und Kontaminations-Risikoanalyse (FMEA)",
+            "Zonierung der Reinraumklassen (ISO 14644-1 und EU-GMP-Leitfaden Anhang 1)",
+            "Erstellung des detaillierten Lastenhefts (URS)",
+            "Flächenlayout, bauliche Machbarkeitsprüfung und Medienanschlussanalyse"
+        ],
+        deliverables: [
+            "Prüffähiges URS-Lastenheftdossier",
+            "Konzeptionelles Reinraum-Zonierungslayout",
+            "Klassifizierungs- und Druckkaskaden-Matrix",
+            "Vorläufiges Budget- und Terminrahmenkonzept"
+        ],
+        standards: ["ISO 14644-4 (Planung & Bau)", "ISPE Baseline Guides"],
+        duration: "1 - 3 Wochen",
+        icon: "compass"
+    },
+    {
+        stepNumber: "02",
+        title: "3D-BIM-Engineering & Strömungssimulation",
+        subtitle: "Kollisionsfreie digitale Modellierung & CFD-Strömungsanalyse",
+        description: "Mithilfe modernster Building Information Modeling (BIM Level 2) und computergestützter Strömungssimulation (CFD) planen wir Reinraumhülle, Lüftungskanäle, Rasterdecken und Rohrleitungen millimetergenau vor der Fertigung.",
+        keyActivities: [
+            "Gewerkeübergreifende 3D-BIM-Modellierung (LOD 350 / 400)",
+            "CFD-Luftströmungssimulation zur Vermeidung von Totzonen und Verwirbelungen",
+            "Kollisionsprüfung zwischen Tragwerk, Lüftungstrassen und Prozessmedien",
+            "Detaillierte Stücklisten (BOM) und werkstattgerechte Fertigungszeichnungen"
+        ],
+        deliverables: [
+            "3D-BIM-Modell (Revit- / IFC-Format)",
+            "CFD-Strömungsanalysebericht",
+            "Thermodynamische HLK-Lastberechnung",
+            "Freigegebene Ausführungs- und Montagepläne"
+        ],
+        standards: ["DIN EN ISO 14644-4", "VDI 2083 Blatt 1-3", "Eurovent-Lüftungsnormen"],
+        duration: "2 - 4 Wochen",
+        icon: "layers"
+    },
+    {
+        stepNumber: "03",
+        title: "Werksfertigung & Reinraummontage",
+        subtitle: "Präzise industrielle Fertigung & schnelle Errichtung vor Ort",
+        description: "Reinraumkomponenten werden unter kontrollierten Werksbedingungen präzisionsgefertigt. Die Montage vor Ort erfolgt durch zertifizierte Reinraummonteure mit partikelarmer Baustellenführung – das verkürzt die Bauzeit vor Ort um bis zu 50 %.",
+        keyActivities: [
+            "CNC-Präzisionsfertigung von Monoblock- und Kassettenwandelementen",
+            "Werksmontage von dynamischen Materialschleusen und Personen-Luftduschen",
+            "Zügige Vor-Ort-Montage von Trennwänden, begehbarer Decke und Schleusentüren",
+            "Verlegung nahtloser Hohlkehl-Epoxid- oder leitfähiger ESD-Vinylböden"
+        ],
+        deliverables: [
+            "Werksabnahmeprüfzeugnisse (FAT-Zertifikate)",
+            "Vollständig montierte Reinraum-Gebäudehülle",
+            "Druckprüfbericht der dichten Raumhülle",
+            "Reine Bauprotokolle nach VDI 2083"
+        ],
+        standards: ["EN 13501-1 (Brandschutz)", "EN 12207 (Luftdichtheit)"],
+        duration: "4 - 8 Wochen",
+        icon: "tool"
+    },
+    {
+        stepNumber: "04",
+        title: "HLK-Inbetriebnahme & Luftabgleich",
+        subtitle: "Systemintegration & mikroklimatische Einregulierung",
+        description: "Nach Fertigstellung der dichten Hülle installieren unsere Ingenieure endständige Schwebstofffilter (HEPA/ULPA), gleichen Strömungsgeschwindigkeiten und Druckkaskaden ab und kalibrieren die Regelung für stabile Betriebsbedingungen.",
+        keyActivities: [
+            "Einbau und Integritätsprüfung endständiger H14-HEPA- und U15-ULPA-Filter",
+            "Volumenstromabgleich an allen Zuluftauslässen und Rückluftgittern",
+            "Einregulierung der Raum-Differenzdruckkaskaden (10 bis 25 Pa Stufen)",
+            "Feinabstimmung der PID-Regler für Temperatur (±0,2 °C) und Feuchte (±2 % r.F.)"
+        ],
+        deliverables: [
+            "Luftmengen- und Einregulierungsbericht",
+            "Druckstufen- und Kaskadenplan",
+            "Temperatur- und Feuchte-Stabilitätsprotokolle",
+            "Filter-Integritäts- und DEHS-Prüfzertifikate"
+        ],
+        standards: ["DIN EN ISO 14644-3 (Prüfverfahren)", "VDI 2083 Blatt 4"],
+        duration: "1 - 2 Wochen",
+        icon: "wind"
+    },
+    {
+        stepNumber: "05",
+        title: "Validierung, Qualifizierung & Übergabe",
+        subtitle: "Auditsichere DQ / IQ / OQ / PQ Qualifizierung",
+        description: "Zertifizierte Validierungsingenieure führen umfassende Qualifizierungsprüfungen gemäß GAMP 5 und ISO 14644 durch. Sie erhalten ein vollständiges, behördenfestes Dossier sowie praxisnahe Schulungen vor der finalen Freigabe.",
+        keyActivities: [
+            "Partikelmessungen im Ruhezustand (at-rest) und im Betriebszustand (in-operation)",
+            "Rauchstudien zur Strömungsvisualisierung (Erfassung von Strömungsrichtung & Turbulenz)",
+            "Erholzeitmessung (Recovery Test) zur Bestimmung der Abreinigungszeit (100:1)",
+            "Erstellung der vollständigen DQ-, IQ-, OQ- und PQ-Validierungsdokumentation"
+        ],
+        deliverables: [
+            "Offizielles ISO 14644-1 Reinraum-Klassifizierungszertifikat",
+            "Vollständiges IQ / OQ / PQ Qualifizierungsdossier",
+            "Videodokumentation der Strömungsvisualisierung",
+            "Betriebs- und Wartungshandbücher für die Gesamtanlage"
+        ],
+        standards: ["DIN EN ISO 14644-1:2015", "EU-GMP-Leitfaden Anhang 1", "FDA 21 CFR Part 211", "GAMP 5"],
+        duration: "1 - 2 Wochen",
+        icon: "award"
+    }
+];
+export const processStepsData = processStepsDataDe; // Default German
+export function getLocalizedProcess(lang = "de") {
+    return lang === "en" ? processStepsDataEn : processStepsDataDe;
+}

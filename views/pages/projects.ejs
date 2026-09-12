@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="<%= lang %>">
 <head>
   <%- include('../partials/head') %>
 </head>
@@ -9,8 +9,8 @@
   <!-- Page Header -->
   <section class="hero" style="padding:48px 0;">
     <div class="container">
-      <h1>Our Projects</h1>
-      <p style="margin-bottom:0;">A selection of cleanroom installations designed, constructed, and validated by REINWERK.</p>
+      <h1><%= t('projectsPage.pageTitle') %></h1>
+      <p style="margin-bottom:0;"><%= t('projectsPage.pageSubtitle') %></p>
     </div>
   </section>
 
@@ -31,9 +31,9 @@
                 <h2 style="font-size:1.35rem; color:var(--primary-navy); margin:6px 0 10px;"><%= p.title %></h2>
                 <p style="font-size:0.9375rem; color:var(--slate-text); margin-bottom:12px;"><%= p.summary %></p>
                 <div style="background:var(--slate-light); padding:10px 14px; border-radius:4px; font-size:0.875rem; margin-bottom:16px;">
-                  <strong>Specifications:</strong> <%= p.area %> Floor Area | <%= p.isoClass %> | <%= p.gmpGrade %>
+                  <strong><%= lang === 'en' ? 'Specifications:' : 'Kenndaten:' %></strong> <%= p.area %> <%= lang === 'en' ? 'Floor Area' : 'Nutzfläche' %> | <%= p.isoClass %> | <%= p.gmpGrade %>
                 </div>
-                <a href="/quote" class="btn btn-outline btn-sm">Request Similar Project</a>
+                <a href="/quote" class="btn btn-outline btn-sm"><%= t('projectsPage.requestSimilar') %></a>
               </div>
             </div>
           </div>
@@ -45,9 +45,9 @@
   <!-- CTA Bar -->
   <section class="cta-bar">
     <div class="container">
-      <h2>Have a Facility Requiring Cleanroom Construction?</h2>
-      <p>Speak to our engineers to schedule a preliminary site assessment.</p>
-      <a href="/contact" class="btn btn-accent">Contact Our Office</a>
+      <h2><%= t('projectsPage.ctaTitle') %></h2>
+      <p><%= t('projectsPage.ctaDesc') %></p>
+      <a href="/contact" class="btn btn-accent"><%= t('common.contactUs') %></a>
     </div>
   </section>
 

@@ -1,4 +1,282 @@
-export const servicesData = [
+export const servicesDataDe = [
+    {
+        id: "modular-cleanrooms",
+        slug: "modular-cleanrooms",
+        title: "Modulare Reinraumsysteme",
+        shortDescription: "Schlüsselfertige Hardwall-, Monobloc- und Kassetten-Wandsysteme für schnelle, saubere Montage und maximale Flexibilität.",
+        heroHeadline: "Modulare Reinraumarchitektur der nächsten Generation",
+        heroSubheadline: "Höchste deutsche Ingenieurpräzision. Skalierbar, demontierbar und konform nach DIN EN ISO 14644-1 und EU-GMP Annex 1.",
+        heroImage: "/images/cleanrooms/modular-suite.jpg",
+        isoRange: "ISO-Klasse 3 bis ISO-Klasse 9",
+        gmpGrades: "GMP-Grade A, B, C, D",
+        icon: "layers",
+        overview: [
+            "REINWERK plant, fertigt und montiert hochleistungsfähige modulare Reinraumhüllen für anspruchsvolle Kontaminationskontrolle. Unsere Systeme zeichnen sich durch hervorragende thermische Isolation, planebene flächenbündige Fugen und zukunftssichere Erweiterbarkeit aus.",
+            "Durch die werkseitige Vorfertigung von bis zu 90 % der Bauteile verkürzen wir die Montagezeit vor Ort um bis zu 50 % im Vergleich zu herkömmlichen Trockenbauweisen – mit minimalen Stillstandszeiten in Ihrer Produktion."
+        ],
+        keyFeatures: [
+            {
+                title: "Flächenbündige Architektur",
+                description: "Monobloc- und Kassettenpaneele mit komplanaren Sichtfenstern und silikonfreien Trockendichtungen verhindern Partikelablagerungen.",
+                icon: "maximize-2"
+            },
+            {
+                title: "Begehbare Deckensysteme",
+                description: "Hochbelastbare Rasterdecken für Wartungszugänge, integrierte LED-Reinraumleuchten und Direktaufnahme von Filter-Fan-Units (FFUs).",
+                icon: "shield"
+            },
+            {
+                title: "Chemikalien- & VHP-Beständig",
+                description: "Oberflächen in HPL, pulverbeschichtetem verzinktem Stahl oder Edelstahl 316L – resistent gegen Begasung mit verdampftem Wasserstoffperoxid.",
+                icon: "check-circle"
+            },
+            {
+                title: "Integrierte Medienführung",
+                description: "Vorbereitete Installationskanäle für Strom-, Gas-, Daten- und Sensorleitungen sauber im Paneelkern integriert.",
+                icon: "cpu"
+            }
+        ],
+        specifications: [
+            { label: "Wandkerne", value: "Aluminiumwabe, PIR-Hartschaum oder Mineralwolle A2" },
+            { label: "Wandstärken", value: "50 mm / 60 mm / 80 mm / 100 mm Ausführungen" },
+            { label: "Oberflächen", value: "Antistatisches HPL, PVDF-Beschichtung oder Edelstahl 304/316L" },
+            { label: "Bodenanbindung", value: "Leitfähiger Vinylbelag oder coved Epoxidharzbeschichtung" },
+            { label: "Brandschutz", value: "EN 13501-1 Klasse A2-s1,d0 bzw. B-s1,d0" },
+            { label: "Dichtheitsklasse", value: "Klasse 4 nach EN 12207 (Druckdifferenzen bis 100 Pa)" }
+        ],
+        applications: [
+            "Biopharmazeutische Produktion",
+            "Sterilabfüllung & Compounding",
+            "Halbleiter- & Mikrosystemtechnik",
+            "Medizintechnik-Montage",
+            "Zell- & Gentherapie-Labore"
+        ],
+        processSteps: [
+            { step: "01", title: "Bedarfsanalyse & URS", description: "Ermittlung von Partikelklassen, Druckkaskaden, Materialflüssen und Luftvolumenströmen." },
+            { step: "02", title: "3D-BIM-Planung", description: "Kollisionsfreie Modellierung aller Gewerke von Reinraumwand bis Medienverrohrung." },
+            { step: "03", title: "Präzisionsfertigung", description: "Industrielle Fertigung der Paneele, Türen und Schleusen unter strenger Qualitätskontrolle." },
+            { step: "04", title: "Saubere Vor-Ort-Montage", description: "Schnellbau durch geschulte Reinraummonteure mit minimierter Partikelemission." }
+        ],
+        faqs: [
+            {
+                question: "Können modulare Reinräume nachträglich erweitert werden?",
+                answer: "Ja. Das nicht-progressive Verbindungssystem ermöglicht es, einzelne Wand- und Deckenelemente ohne Beeinträchtigung angrenzender Zonen umzubauen oder zu erweitern."
+            },
+            {
+                question: "Welche Vorteile bieten modulare Paneele gegenüber Trockenbau?",
+                answer: "Modulare Systeme sind werksseitig fertig beschichtet, erzeugen beim Aufbau keinen Gipsstaub, benötigen keine Trocknungszeiten für Farben und sind sofort reinraumgerecht desinfizierbar."
+            }
+        ]
+    },
+    {
+        id: "hvac-air-handling",
+        slug: "hvac-air-handling",
+        title: "Reinraum-HVAC & Klimatechnik",
+        shortDescription: "Kundenspezifische Lüftungszentralen, HEPA/ULPA H14-U17 Filtration, Differenzdruckkaskaden und mikroklimatische Konditionierung.",
+        heroHeadline: "Präzise Reinraum-Klimatechnik & Aerodynamik",
+        heroSubheadline: "Laminare und turbulenzarme Luftführung für verlässliche Partikelabfuhr, kontinuierliche Druckdifferenzen und exakte Temperatur- & Feuchtestabilität.",
+        heroImage: "/images/cleanrooms/hvac-filtration.jpg",
+        isoRange: "ISO-Klasse 1 bis ISO-Klasse 9",
+        gmpGrades: "GMP-Grade A, B, C, D",
+        icon: "wind",
+        overview: [
+            "Sichere Kontaminationskontrolle basiert auf kompromissloser aerodynamischer Auslegung. REINWERK plant und integriert schlüsselfertige Reinraum-Lüftungsanlagen, die konstante Über- oder Unterdrücke sowie engste thermohygrometrische Grenzwerte sicherstellen.",
+            "Durch elektronisch kommutierte (EC) Ventilatoren, bedarfsgerechte Volumenstromregelung und hocheffiziente Wärmerückgewinnung senken wir den Energiebedarf um bis zu 35 % bei dauerhafter Normtreue 24/7."
+        ],
+        keyFeatures: [
+            {
+                title: "Mehrstufige HEPA- & ULPA-Filtration",
+                description: "Vorfiltration (ISO ePM1) kombiniert mit endständigen H14-Schwebstofffiltern (99,995 %) und U15-U17-ULPA-Filtern für maximale Abscheidung.",
+                icon: "filter"
+            },
+            {
+                title: "Aktive Druckkaskadenregelung",
+                description: "Automatische Druckhaltung mit 10 Pa bis 25 Pa Druckstaffelung zwischen angrenzenden Zonen zur Verhinderung von Kreuzkontamination.",
+                icon: "activity"
+            },
+            {
+                title: "Präzise Klimakonditionierung",
+                description: "Temperaturkonstanz bis ±0,2 °C und relative Feuchteregelung bis ±2 % r.F. für sensible Halbleiter- und Bioprozesse.",
+                icon: "thermometer"
+            },
+            {
+                title: "GLT- & Monitoring-Anbindung",
+                description: "Lückenlose Erfassung von Luftgeschwindigkeiten, Filterdifferenzdrücken, Raumtemperaturen und Feuchte mit Audit-Trail.",
+                icon: "sliders"
+            }
+        ],
+        specifications: [
+            { label: "Endfiltration", value: "EN 1822 geprüfte H14 HEPA (99,995 %) oder U15-U17 ULPA (99,99995 %)" },
+            { label: "Luftwechselraten", value: "Von 15 bis über 100 Luftwechsel pro Stunde (LW/h) nach ISO-Klasse" },
+            { label: "Temperaturregelung", value: "Standard: 20 °C ± 1 °C; Präzisionsoption: bis ± 0,2 °C" },
+            { label: "Feuchteregelung", value: "Standard: 45 % ± 5 % r.F.; Entfeuchtungsoptionen bis < 1 % r.F." },
+            { label: "Ventilatortechnik", value: "Hocheffiziente EC-Radialventilatoren (Effizienzklasse IE5)" },
+            { label: "Schalldruckpegel", value: "< 55 dB(A) im Aufenthaltsbereich durch integrierte Telefonieschalldämpfer" }
+        ],
+        applications: [
+            "Aseptische Abfüllung & Bioprozesse",
+            "Wafer-Fertigung & Nanotechnologie",
+            "Wirkstoffsynthese & Chemielabore",
+            "Präzisionsoptik & Satellitentests",
+            "Sterile Arzneimittelzubereitung"
+        ],
+        processSteps: [
+            { step: "01", title: "Thermodynamik & CFD-Simulation", description: "Berechnung von Kühllasten, Luftwechseln und Strömungsmustern im Raum." },
+            { step: "02", title: "RLT-Geräteauslegung", description: "Hygienegerechte Klimageräte mit thermisch entkoppelten Gehäusen und Dichtklappen." },
+            { step: "03", title: "Luftkanalbau & Dichtheitsprüfung", description: "Airtight-Dichtheitsprüfung der Kanäle nach DIN EN 15727 Dichtheitsklasse C/D." },
+            { step: "04", title: "Einregulierung & Strömungsvisualisierung", description: "Geschwindigkeitsabgleich und Rauchstudien zur Bestätigung homogener Strömungen." }
+        ],
+        faqs: [
+            {
+                question: "Was ist der Unterschied zwischen laminarer und turbulenter Luftführung?",
+                answer: "Laminare Verdrängungsströmung führt Reinstluft in parallelen Bahnen gleichmäßig (meist 0,36 bis 0,45 m/s) über den Prozess (ISO 5 / GMP A). Turbulente Mischlüftung verdünnt die Partikelkonzentration im Raum (ISO 6 bis 8)."
+            },
+            {
+                question: "Wie optimiert REINWERK den Energieverbrauch der Reinraumlüftung?",
+                answer: "Durch drehzahlvariable EC-Motoren, automatische Nachtabsenkungen, Enthalpie-Wärmerückgewinnung und bedarfsorientierte Luftmengenregelung minimieren wir die Betriebskosten nachhaltig."
+            }
+        ]
+    },
+    {
+        id: "cleanroom-equipment",
+        slug: "cleanroom-equipment",
+        title: "Reinraum-Ausstattung & Schleusentechnik",
+        shortDescription: "Dynamische Materialdurchreichen, Personen-Luftduschen, Laminar-Flow-Werkbänke, Interlock-Steuerungen und Schleusenmobiliar.",
+        heroHeadline: "Schleusen, Durchreichen & Reinraumausstattung",
+        heroSubheadline: "Sichere Barrieren für Personen- und Materialbewegungen. Gefertigt aus Edelstahl 304 und 316L für optimale Desinfizierbarkeit.",
+        heroImage: "/images/cleanrooms/equipment-passbox.jpg",
+        isoRange: "ISO-Klasse 3 bis ISO-Klasse 8",
+        gmpGrades: "GMP-Grade A, B, C, D",
+        icon: "box",
+        overview: [
+            "Über 80 % der Kontaminationen in Reinräumen gelangen über Personal und Materialtransport in die Zonen. REINWERK baut robuste Durchreichen und dynamische Schleusensysteme, die sensible Prozesse vor äußeren Partikeln schützen.",
+            "Von Hochgeschwindigkeits-Luftduschen zur Entpartikelung von Arbeitskleidung bis zu aktiven Durchreichen mit H14-Filterung und VHP-Begasungsanschlüssen liefern wir erstklassige Schleusentechnik."
+        ],
+        keyFeatures: [
+            {
+                title: "Personen-Luftduschen",
+                description: "Hochgeschwindigkeitsdüsen (25-30 m/s) blasen anhaftende Mikropartikel von der Schutzkleidung vor Betreten des Reinraums ab.",
+                icon: "wind"
+            },
+            {
+                title: "Dynamische Materialdurchreichen",
+                description: "Integrierte HEPA-Umluftfilterung, elektronische elektromagnetische Türverriegelung und Differenzdrucküberwachung.",
+                icon: "refresh-cw"
+            },
+            {
+                title: "Laminar-Flow-Arbeitsplätze",
+                description: "Horizontale und vertikale Werkbänke zur Bereitstellung lokaler ISO-Klasse-3/4-Bedingungen (GMP Grade A) im Labor.",
+                icon: "cpu"
+            },
+            {
+                title: "Schleusenmobiliar aus Edelstahl",
+                description: "Überschlagbänke (Step-Over), Reinraum-Garderoben mit aktiver Absaugung und berührungslose Waschbecken.",
+                icon: "user-check"
+            }
+        ],
+        specifications: [
+            { label: "Materialgüte", value: "Edelstahl 1.4301 (304) oder 1.4404 (316L), elektropoliert (Ra < 0,4 µm)" },
+            { label: "Türverriegelung", value: "Elektromagnetische Verriegelung mit Not-Aus-Überbrückung" },
+            { label: "Ausblasgeschwindigkeit", value: "25 m/s bis 30 m/s an den justierbaren Düsen" },
+            { label: "Filterausstattung", value: "Autarker H14 HEPA-Filter (99,995 %) mit Mini-Pleat-Technologie" },
+            { label: "Steuerung", value: "SPS-Steuerung mit Touchscreen-Bedienung und einstellbaren Zykluszeiten" },
+            { label: "Einbau", value: "Flächenbündige Integration in REINWERK-Wandpaneele" }
+        ],
+        applications: [
+            "Material- und Personenschleusen (MAL & PAL)",
+            "Aseptische Abfüll- und Verpackungslinien",
+            "Pharmazeutische Einwaage- und Dosierkabinen",
+            "Halbleiter-Wafer-Übergabestationen",
+            "Sicherheitslabore BSL-2 und BSL-3"
+        ],
+        processSteps: [
+            { step: "01", title: "Flussanalyse", description: "Strukturierung der Schleusengänge für Personal und Güter zur Vermeidung von Gegenverkehr." },
+            { step: "02", title: "Kundenspezifische Maße", description: "Anpassung der Durchreichen an spezifische Behälter, Kassetten oder Wagenmaße." },
+            { step: "03", title: "Präzisionsfertigung", description: "Laserschneiden, orbitales Fügen und Oberflächenfinish in hygienegerechtem Edelstahl." },
+            { step: "04", title: "Werksabnahme (FAT)", description: "Umfassende Prüfung der Verriegelungszyklen, Luftströme und Filterdichtigkeit vor Auslieferung." }
+        ],
+        faqs: [
+            {
+                question: "Was unterscheidet statische von dynamischen Materialdurchreichen?",
+                answer: "Statische Durchreichen verfügen lediglich über mechanisch oder elektrisch verriegelte Türen. Dynamische Durchreichen besitzen ein aktives Gebläse mit H14-Filter, das Partikel während des Einschleusens aktiv ausspült."
+            },
+            {
+                question: "Können Durchreichen an VHP-Begasungsanlagen angeschlossen werden?",
+                answer: "Ja, REINWERK fertigt gasdichte Durchreichen mit pneumatischen Dichtungen und Stutzen für die Anbindung externer H2O2-Begasungsgeneratoren."
+            }
+        ]
+    },
+    {
+        id: "validation-maintenance",
+        slug: "validation-maintenance",
+        title: "Validierung, Messtechnik & Service",
+        shortDescription: "Komplette DQ/IQ/OQ/PQ-Qualifizierung, Partikelmessungen, Filterintegritätstests (DEHS/DOP) und Wartungsverträge.",
+        heroHeadline: "ISO 14644 & GMP Reinraumqualifizierung & Service",
+        heroSubheadline: "Unabhängige, auditkonforme messtechnische Prüfungen für dauerhafte Rechtssicherheit, hohe Anlagenverfügbarkeit und minimale Stillstandszeiten.",
+        heroImage: "/images/cleanrooms/validation-testing.jpg",
+        isoRange: "ISO-Klasse 1 bis ISO-Klasse 9",
+        gmpGrades: "GMP-Grade A, B, C, D",
+        icon: "award",
+        overview: [
+            "Behörden (Regierungspräsidien, FDA, EMA) fordern vor Freigabe jeder Reinraumanlage eine lückenlose Validierungsdokumentation. REINWERK erbringt vollumfängliche Qualifizierungsleistungen nach dem anerkannten GAMP-5-Lebenszyklusmodell.",
+            "Unsere zertifizierten Messtechniker führen alle Vor-Ort-Messungen mit kalibrierten High-End-Messgeräten durch und übergeben revisionssichere Qualifizierungsberichte."
+        ],
+        keyFeatures: [
+            {
+                title: "Vollständige Qualifizierung (DQ / IQ / OQ / PQ)",
+                description: "Strukturierte Protokolle zum Nachweis, dass Bauwerk, RLT-Technik und Komponenten den Anforderungen (URS) entsprechen.",
+                icon: "clipboard"
+            },
+            {
+                title: "HEPA- / ULPA-Filterintegritätstest",
+                description: "DEHS- / DOP-Aerosolbeaufschlagung und optische Scanprüfung zum Ausschluss von Pinhole-Leckagen in Filtermedium und Dichtsitz.",
+                icon: "shield-check"
+            },
+            {
+                title: "Reinraum-Partikelmessung",
+                description: "Partikelzählung nach ISO 14644-1:2015 'at rest' und 'in operation' für Partikelgrößen ≥ 0,1 µm, ≥ 0,5 µm und ≥ 5,0 µm.",
+                icon: "target"
+            },
+            {
+                title: "Strömungsvisualisierung & Erholzeit",
+                description: "Reinstwasser-Rauchstudien zur Dokumentation gerichteter Luftströmungen und Erholzeitmessung (Recovery Test < 15 Min.).",
+                icon: "play-circle"
+            }
+        ],
+        specifications: [
+            { label: "Prüfnormen", value: "DIN EN ISO 14644-1, 2, 3:2019, EU-GMP Leitfaden Annex 1, VDI 2083" },
+            { label: "Messtechnik", value: "NIST-rückführbar kalibrierte optische Partikelzähler, Aerosolgeneratoren und Thermoanemometer" },
+            { label: "Prüfaerosol", value: "DEHS (Di-Ethyl-Hexyl-Sebacat) oder Emery 3004 / PAO" },
+            { label: "Geschwindigkeitsbereich", value: "0,1 m/s bis 30 m/s mit ± 2 % Messgenauigkeit" },
+            { label: "Berichtswesen", value: "Auditkonforme digitale Zertifikate und detaillierte Qualifizierungsdossiers" },
+            { label: "Serviceintervalle", value: "Halbjährliche oder jährliche Re-Qualifizierungsverträge nach Vereinbarung" }
+        ],
+        applications: [
+            "Erst-Inbetriebnahme und Übergabe von Neubauprojekten",
+            "Zyklische Re-Zertifizierung nach ISO 14644-2",
+            "Filterwechsel- und Integritätsbestätigung",
+            "Auditvorbereitung für Behördeninspektionen (FDA / EMA / RP)",
+            "Fehlersuche bei Partikelanstiegen und Druckabfällen"
+        ],
+        processSteps: [
+            { step: "01", title: "Validierungs-Masterplan (VMP)", description: "Festlegung von Messrastern, Akzeptanzkriterien und Zeitabläufen." },
+            { step: "02", title: "Installationsqualifizierung (IQ)", description: "Prüfung auf Übereinstimmung der verbauten Komponenten mit den Planungsunterlagen." },
+            { step: "03", title: "Funktionsqualifizierung (OQ)", description: "Messtechnische Prüfung von Luftwechseln, Druckdifferenzen, Temperatur, Feuchte und Filterdichtigkeit." },
+            { step: "04", title: "Leistungsqualifizierung (PQ)", description: "Nachweis stabiler Bedingungen unter simulierten oder realen Produktionsbedingungen." }
+        ],
+        faqs: [
+            {
+                question: "Wie oft muss ein Reinraum nach ISO 14644 re-zertifiziert werden?",
+                answer: "Gemäß ISO 14644-2:2015 muss der Nachweis der Partikelreinheit für ISO-Klassen 6 bis 9 mindestens alle 12 Monate, für ISO-Klasse 5 und reiner mindestens alle 6 Monate erbracht werden."
+            },
+            {
+                question: "Was passiert, wenn ein HEPA-Filter eine Leckage aufweist?",
+                answer: "Kleinere Fehlstellen im zulässigen Rahmen können mit FDA-konformen silikonfreien Reinraum-Spezialpasten repariert werden. Bei größeren Beschädigungen tauschen REINWERK-Techniker den Filter direkt vor Ort aus."
+            }
+        ]
+    }
+];
+export const servicesDataEn = [
     {
         id: "modular-cleanrooms",
         slug: "modular-cleanrooms",
@@ -276,6 +554,11 @@ export const servicesData = [
         ]
     }
 ];
-export function getServiceBySlug(slug) {
-    return servicesData.find(service => service.slug === slug);
+export function getLocalizedServices(lang = "de") {
+    return lang === "en" ? servicesDataEn : servicesDataDe;
+}
+export const servicesData = servicesDataDe;
+export function getServiceBySlug(slug, lang = "de") {
+    const list = getLocalizedServices(lang);
+    return list.find(service => service.slug === slug);
 }

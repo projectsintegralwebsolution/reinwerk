@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="<%= lang %>">
 <head>
   <%- include('../partials/head') %>
 </head>
@@ -10,15 +10,17 @@
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumbs">
-        <a href="/">Home</a>
+        <a href="/"><%= t('nav.home') %></a>
         <span>/</span>
-        <span>Process & Technology</span>
+        <span><%= lang === 'en' ? 'Process & Technology' : 'Entwicklungsprozess' %></span>
       </div>
       <div class="page-hero-content">
-        <span class="eyebrow" style="color:#38bdf8;">Engineering Lifecycle</span>
-        <h1>From Concept to Certified Handover</h1>
+        <span class="eyebrow" style="color:#38bdf8;"><%= lang === 'en' ? 'Engineering Lifecycle' : 'Ingenieurtechnischer Lebenszyklus' %></span>
+        <h1><%= lang === 'en' ? 'From Concept to Certified Handover' : 'Vom Konzept bis zur qualifizierten Übergabe' %></h1>
         <p>
-          A proven 5-stage turnkey methodology powered by 3D Building Information Modeling (BIM Level 2), aerodynamic CFD simulations, and rigorous GAMP 5 qualification.
+          <%= lang === 'en'
+            ? 'A proven 5-stage turnkey methodology powered by 3D Building Information Modeling (BIM Level 2), aerodynamic CFD simulations, and rigorous GAMP 5 qualification.'
+            : 'Eine bewährte 5-Phasen-Methodik, gestützt auf 3D-BIM-Modellierung, CFD-Strömungssimulationen und behördensichere GAMP 5 Qualifizierung.' %>
         </p>
       </div>
     </div>
@@ -28,10 +30,12 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Structured Delivery</span>
-        <h2 class="section-title">The REINWERK 5-Stage Execution Framework</h2>
+        <span class="eyebrow"><%= lang === 'en' ? 'Structured Delivery' : 'Strukturierte Projektabwicklung' %></span>
+        <h2 class="section-title"><%= lang === 'en' ? 'The REINWERK 5-Stage Execution Framework' : 'Das REINWERK 5-Phasen-Entwicklungsmodell' %></h2>
         <p class="section-subtitle">
-          Ensuring zero ambiguity, strict adherence to budget, and guaranteed compliance at first-pass validation.
+          <%= lang === 'en'
+            ? 'Ensuring zero ambiguity, strict adherence to budget, and guaranteed compliance at first-pass validation.'
+            : 'Garantiert höchste Budgetsicherheit, klare Meilensteine und erfolgreiche Erstvalidierung.' %>
         </p>
       </div>
 
@@ -43,7 +47,7 @@
               <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:8px;">
                 <h3 style="font-size:1.625rem; color:var(--slate-900);"><%= st.title %></h3>
                 <span class="deliverable-tag" style="background:var(--clean-blue-light); color:var(--primary-navy); font-weight:700;">
-                  Typical Duration: <%= st.duration %>
+                  <%= lang === 'en' ? 'Typical Duration:' : 'Typische Dauer:' %> <%= st.duration %>
                 </span>
               </div>
               <span class="process-subtitle" style="font-size:1rem;"><%= st.subtitle %></span>
@@ -53,7 +57,7 @@
               <div class="grid-2" style="margin-bottom:20px;">
                 <div style="background:var(--slate-50); padding:20px; border-radius:var(--radius-md); border:1px solid var(--slate-200);">
                   <h4 style="font-size:0.9375rem; text-transform:uppercase; color:var(--slate-700); margin-bottom:12px; font-weight:700;">
-                    Key Engineering Activities:
+                    <%= lang === 'en' ? 'Key Engineering Activities:' : 'Wesentliche Ingenieurleistungen:' %>
                   </h4>
                   <ul style="font-size:0.875rem; color:var(--slate-600); display:flex; flex-direction:column; gap:6px;">
                     <% st.keyActivities.forEach(act => { %>
@@ -67,7 +71,7 @@
 
                 <div style="background:var(--slate-50); padding:20px; border-radius:var(--radius-md); border:1px solid var(--slate-200);">
                   <h4 style="font-size:0.9375rem; text-transform:uppercase; color:var(--slate-700); margin-bottom:12px; font-weight:700;">
-                    Documented Deliverables:
+                    <%= lang === 'en' ? 'Documented Deliverables:' : 'Dokumentierte Ergebnisse:' %>
                   </h4>
                   <ul style="font-size:0.875rem; color:var(--slate-600); display:flex; flex-direction:column; gap:6px;">
                     <% st.deliverables.forEach(deliv => { %>
@@ -82,7 +86,9 @@
 
               <!-- Standards Tagline -->
               <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                <span style="font-size:0.75rem; text-transform:uppercase; color:var(--slate-500); font-weight:700;">Governing Standards:</span>
+                <span style="font-size:0.75rem; text-transform:uppercase; color:var(--slate-500); font-weight:700;">
+                  <%= lang === 'en' ? 'Governing Standards:' : 'Maßgebliche Normen:' %>
+                </span>
                 <% st.standards.forEach(std => { %>
                   <span class="deliverable-tag"><%= std %></span>
                 <% }) %>

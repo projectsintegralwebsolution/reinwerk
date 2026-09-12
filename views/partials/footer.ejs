@@ -7,43 +7,52 @@
           <img src="/images/logo.jpg" alt="REINWERK Logo" style="height:36px; width:auto; display:block;">
         </div>
         <p style="line-height:1.6; max-width:320px;">
-          REINWERK Reinraum- und Anlagentechnik provides cleanroom design, modular construction, HVAC filtration, and validation services according to ISO 14644 and EU-GMP standards.
+          <%= t('footer.description') %>
         </p>
       </div>
 
       <div>
-        <h4>Quick Links</h4>
+        <h4><%= t('footer.quickLinks') %></h4>
         <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/industries">Industries</a></li>
-          <li><a href="/projects">Projects</a></li>
+          <li><a href="/"><%= t('nav.home') %></a></li>
+          <li><a href="/about"><%= t('nav.about') %></a></li>
+          <li><a href="/services"><%= t('nav.services') %></a></li>
+          <li><a href="/industries"><%= t('nav.industries') %></a></li>
+          <li><a href="/projects"><%= t('nav.projects') %></a></li>
+          <li><a href="/why-choose-us"><%= lang === 'en' ? 'Why Choose Us' : 'Warum REINWERK' %></a></li>
+          <li><a href="/process"><%= lang === 'en' ? 'Process & Tech' : 'Entwicklungsprozess' %></a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Services</h4>
+        <h4><%= t('footer.services') %></h4>
         <ul class="footer-links">
-          <li><a href="/services">Modular Cleanrooms</a></li>
-          <li><a href="/services">HVAC & Filtration</a></li>
-          <li><a href="/services">Pass-Through Airlocks</a></li>
-          <li><a href="/services">Validation & Testing</a></li>
-          <li><a href="/quote">Request a Quote</a></li>
+          <li><a href="/services/modular-cleanrooms"><%= lang === 'en' ? 'Modular Cleanrooms' : 'Modulare Reinraumsysteme' %></a></li>
+          <li><a href="/services/cleanroom-hvac"><%= lang === 'en' ? 'HVAC & Filtration' : 'HLK- & Klimatechnik' %></a></li>
+          <li><a href="/services/cleanroom-equipment"><%= lang === 'en' ? 'Equipment & Airlocks' : 'Schleusen & Reinstraumtechnik' %></a></li>
+          <li><a href="/services/validation-testing"><%= lang === 'en' ? 'Validation & Testing' : 'Validierung & Messtechnik' %></a></li>
+          <li><a href="/quote"><%= t('common.requestQuote') %></a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Get in Touch</h4>
+        <h4><%= t('footer.getInTouch') %></h4>
         <p style="margin-bottom:14px; color:#cbd5e1; line-height:1.6;">
-          Have questions about modular cleanrooms or need technical guidance? Send an inquiry directly to our engineering desk.
+          <%= t('footer.inquiryText') %>
         </p>
-        <a href="/contact" class="btn btn-accent" style="padding:7px 16px; font-size:0.875rem;">Contact Desk</a>
+        <a href="/contact" class="btn btn-accent" style="padding:7px 16px; font-size:0.875rem;"><%= t('footer.contactDesk') %></a>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© <%= currentYear %> REINWERK Reinraum- und Anlagentechnik GmbH. All rights reserved. • domain: reinwerk.co</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <p style="margin:0;">© <%= currentYear %> REINWERK Reinraum- und Anlagentechnik GmbH. <%= t('common.allRightsReserved') %> • reinwerk.co</p>
+        <div class="lang-switch">
+          <a href="<%= currentPath %>?lang=de" class="lang-btn <%= lang === 'de' ? 'active' : '' %>">Deutsch (DE)</a>
+          <span class="lang-divider">|</span>
+          <a href="<%= currentPath %>?lang=en" class="lang-btn <%= lang === 'en' ? 'active' : '' %>">English (EN)</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

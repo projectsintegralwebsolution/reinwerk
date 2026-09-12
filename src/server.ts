@@ -6,8 +6,9 @@ import dotenv from "dotenv";
 import fs from "fs";
 import { pagesRouter } from "./routes/pages.js";
 import { apiRouter } from "./routes/api.js";
-import { servicesData } from "./data/services.js";
-import { industriesData } from "./data/industries.js";
+import { getLocalizedServices } from "./data/services.js";
+import { getLocalizedIndustries } from "./data/industries.js";
+import { Language, translations, getTranslation } from "./i18n/translations.js";
 
 dotenv.config();
 
@@ -33,18 +34,50 @@ app.set("views", path.join(rootDir, "views"));
 // Static Assets
 app.use(express.static(path.join(rootDir, "public")));
 
+// Bilingual Language Resolution Middleware
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const queryLang = (req.query.lang as string)?.toLowerCase();
+  const cookieMatch = (req.headers.cookie || "").match(/(?:^|;\s*)lang=([a-z]{2})/i);
+  const cookieLang = cookieMatch ? cookieMatch[1].toLowerCase() : null;
+
+  // Default language is German ("de"), switchable to English ("en")
+  let lang: Language = "de";
+  if (queryLang === "en" || queryLang === "de") {
+    lang = queryLang;
+    res.cookie("lang", lang, { maxAge: 365 * 24 * 60 * 60 * 1000, path: "/" });
+  } else if (cookieLang === "en" || cookieLang === "de") {
+    lang = cookieLang;
+  }
+
+  res.locals.lang = lang;
+  res.locals.currentLang = lang;
+  res.locals.t = (pathKey: string) => getTranslation(lang, pathKey);
+  res.locals.translations = translations[lang];
+  res.locals.servicesList = getLocalizedServices(lang);
+  res.locals.industriesList = getLocalizedIndustries(lang);
+  res.locals.currentYear = new Date().getFullYear();
+  res.locals.currentPath = req.path;
+
+  next();
+});
+
 // Mount Routes
 app.use("/", pagesRouter);
 app.use("/api", apiRouter);
 
 // 404 Not Found Handler
 app.use((req: Request, res: Response) => {
+  const lang = (res.locals.lang || "de") as Language;
+  const isEn = lang === "en";
+
   res.status(404).render("pages/404", {
     activeRoute: "404",
-    metaTitle: "404 - Page Not Found | REINWERK",
-    metaDescription: "The page you are looking for does not exist or has been moved.",
-    servicesList: servicesData,
-    industriesList: industriesData,
+    metaTitle: isEn ? "404 - Page Not Found | REINWERK" : "404 - Seite nicht gefunden | REINWERK",
+    metaDescription: isEn
+      ? "The page you are looking for does not exist or has been moved."
+      : "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    servicesList: getLocalizedServices(lang),
+    industriesList: getLocalizedIndustries(lang),
     currentYear: new Date().getFullYear()
   });
 });
@@ -52,12 +85,17 @@ app.use((req: Request, res: Response) => {
 // Global Error Handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error("[REINWERK Server Error]:", err);
+  const lang = (res.locals.lang || "de") as Language;
+  const isEn = lang === "en";
+
   res.status(500).render("pages/404", {
     activeRoute: "500",
-    metaTitle: "500 - Server Error | REINWERK",
-    metaDescription: "An internal server error occurred.",
-    servicesList: servicesData,
-    industriesList: industriesData,
+    metaTitle: isEn ? "500 - Server Error | REINWERK" : "500 - Serverfehler | REINWERK",
+    metaDescription: isEn
+      ? "An internal server error occurred."
+      : "Ein interner Serverfehler ist aufgetreten.",
+    servicesList: getLocalizedServices(lang),
+    industriesList: getLocalizedIndustries(lang),
     currentYear: new Date().getFullYear()
   });
 });

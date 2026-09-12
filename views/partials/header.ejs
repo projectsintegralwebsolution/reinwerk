@@ -2,11 +2,16 @@
 <div class="topbar">
   <div class="container">
     <div>
-      <span>REINWERK Cleanroom & Plant Engineering</span>
-      <span style="margin-left: 14px; opacity: 0.8;">| ISO 14644 & GMP Compliance</span>
+      <span><%= t('topbar.title') %></span>
+      <span style="margin-left: 14px; opacity: 0.8;">| <%= t('topbar.subtitle') %></span>
     </div>
-    <div>
-      <span>Turnkey Modular Cleanrooms & Controlled Environments</span>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span class="topbar-tagline"><%= t('topbar.tagline') %></span>
+      <div class="lang-switch">
+        <a href="<%= currentPath %>?lang=de" class="lang-btn <%= lang === 'de' ? 'active' : '' %>" title="Deutsch">DE</a>
+        <span class="lang-divider">|</span>
+        <a href="<%= currentPath %>?lang=en" class="lang-btn <%= lang === 'en' ? 'active' : '' %>" title="English">EN</a>
+      </div>
     </div>
   </div>
 </div>
@@ -20,16 +25,25 @@
       </a>
 
       <nav class="nav-links" id="navLinks">
-        <a href="/" class="<%= activeRoute === 'home' ? 'active' : '' %>">Home</a>
-        <a href="/about" class="<%= activeRoute === 'about' ? 'active' : '' %>">About Us</a>
-        <a href="/services" class="<%= activeRoute === 'services' ? 'active' : '' %>">Services</a>
-        <a href="/industries" class="<%= activeRoute === 'industries' ? 'active' : '' %>">Industries</a>
-        <a href="/projects" class="<%= activeRoute === 'projects' ? 'active' : '' %>">Projects</a>
-        <a href="/contact" class="<%= activeRoute === 'contact' ? 'active' : '' %>">Contact</a>
+        <a href="/" class="<%= activeRoute === 'home' ? 'active' : '' %>"><%= t('nav.home') %></a>
+        <a href="/about" class="<%= activeRoute === 'about' ? 'active' : '' %>"><%= t('nav.about') %></a>
+        <a href="/services" class="<%= activeRoute === 'services' ? 'active' : '' %>"><%= t('nav.services') %></a>
+        <a href="/industries" class="<%= activeRoute === 'industries' ? 'active' : '' %>"><%= t('nav.industries') %></a>
+        <a href="/projects" class="<%= activeRoute === 'projects' ? 'active' : '' %>"><%= t('nav.projects') %></a>
+        <a href="/contact" class="<%= activeRoute === 'contact' ? 'active' : '' %>"><%= t('nav.contact') %></a>
+        <div class="mobile-lang-switch">
+          <a href="<%= currentPath %>?lang=de" class="lang-btn <%= lang === 'de' ? 'active' : '' %>">Deutsch (DE)</a>
+          <a href="<%= currentPath %>?lang=en" class="lang-btn <%= lang === 'en' ? 'active' : '' %>">English (EN)</a>
+        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="/quote" class="btn btn-accent">Request Quote</a>
+        <div class="lang-switch header-lang-switch">
+          <a href="<%= currentPath %>?lang=de" class="lang-btn <%= lang === 'de' ? 'active' : '' %>" title="Deutsch">DE</a>
+          <span class="lang-divider">|</span>
+          <a href="<%= currentPath %>?lang=en" class="lang-btn <%= lang === 'en' ? 'active' : '' %>" title="English">EN</a>
+        </div>
+        <a href="/quote" class="btn btn-accent"><%= t('nav.requestQuote') %></a>
         <button class="mobile-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
       </div>
     </div>
